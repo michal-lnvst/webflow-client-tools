@@ -38,7 +38,7 @@ Co trzeba zrobić:
 
 1. Wypchnij repo na GitHub (branch `main`).
 2. Wejdź w ustawienia repo: `Settings -> Pages`.
-3. W sekcji `Build and deployment` ustaw `Source: GitHub Actions`.
+3. Workflow spróbuje włączyć `Source: GitHub Actions` automatycznie przy pierwszym deploymencie. Jeśli repo ma to zablokowane, ustaw ręcznie `Settings -> Pages -> Build and deployment -> Source: GitHub Actions`.
 4. Zrób push zmian do folderu `packaging-platform-mvp/` albo uruchom workflow ręcznie (`Actions -> Deploy Packaging MVP to GitHub Pages -> Run workflow`).
 
 Po udanym deployu URL będzie w formacie:
