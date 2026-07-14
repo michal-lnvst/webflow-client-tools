@@ -1,0 +1,14 @@
+# Secrets
+.env
+
+# Node
+**/node_modules/
+**/dist/
+
+# Python
+.venv/
+
+# OS / editor
+.vscode/
+.DS_Store
+Thumbs.db
