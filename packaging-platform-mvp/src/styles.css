@@ -1,19 +1,19 @@
 :root {
-  --bg: #f2efe8;
-  --surface: rgba(255, 255, 255, 0.76);
-  --surface-strong: #fffdf8;
-  --surface-dark: #17352f;
-  --text: #16201e;
-  --muted: #5f6d68;
-  --line: rgba(22, 32, 30, 0.1);
-  --accent: #ee6c4d;
-  --accent-deep: #b4472f;
-  --accent-soft: rgba(238, 108, 77, 0.15);
-  --green: #2d6a4f;
-  --green-soft: rgba(45, 106, 79, 0.12);
-  --amber: #e0a100;
-  --danger: #b42318;
-  --shadow: 0 24px 70px rgba(28, 37, 34, 0.12);
+  --bg: #f5f5f5;
+  --surface: #ffffff;
+  --surface-strong: #ffffff;
+  --surface-dark: #2d2d2d;
+  --text: #1f1f1f;
+  --muted: #6a6a6a;
+  --line: #d7d7d7;
+  --accent: #2f2f2f;
+  --accent-deep: #1f1f1f;
+  --accent-soft: #eeeeee;
+  --green: #3c3c3c;
+  --green-soft: #f0f0f0;
+  --amber: #8a8a8a;
+  --danger: #5a5a5a;
+  --shadow: none;
   font-family: 'IBM Plex Sans', sans-serif;
   color: var(--text);
   background: var(--bg);
@@ -30,10 +30,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background:
-    radial-gradient(circle at top left, rgba(238, 108, 77, 0.18), transparent 28%),
-    radial-gradient(circle at right 18%, rgba(45, 106, 79, 0.16), transparent 24%),
-    linear-gradient(180deg, #f8f4ec 0%, #f1ede5 100%);
+  background: var(--bg);
 }
 
 a {
@@ -54,12 +51,11 @@ button {
 .shell {
   width: min(1400px, calc(100vw - 32px));
   margin: 16px auto;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 28px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
   overflow: hidden;
   box-shadow: var(--shadow);
-  backdrop-filter: blur(20px);
-  background: rgba(255, 250, 244, 0.72);
+  background: var(--surface);
 }
 
 .topbar {
@@ -80,8 +76,8 @@ button {
 .brand__mark {
   width: 42px;
   height: 42px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, var(--accent) 0%, #f4b942 100%);
+  border-radius: 8px;
+  background: var(--accent);
   display: grid;
   place-items: center;
   color: white;
@@ -125,24 +121,24 @@ button {
 }
 
 .button {
-  border: none;
+  border: 1px solid var(--line);
   border-radius: 999px;
   padding: 12px 18px;
-  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  transition: background 140ms ease;
 }
 
 .button:hover {
-  transform: translateY(-1px);
+  transform: none;
 }
 
 .button--primary {
   background: var(--accent);
   color: white;
-  box-shadow: 0 10px 24px rgba(238, 108, 77, 0.28);
+  box-shadow: none;
 }
 
 .button--ghost {
-  background: rgba(255, 255, 255, 0.65);
+  background: #f7f7f7;
   border: 1px solid var(--line);
 }
 
@@ -162,14 +158,14 @@ button {
   flex: 0 0 auto;
   text-align: left;
   padding: 12px 14px;
-  border-radius: 14px;
+  border-radius: 8px;
   border: 1px solid transparent;
-  background: rgba(255, 255, 255, 0.52);
+  background: #f7f7f7;
 }
 
 .main-nav-horizontal button.is-active {
-  background: rgba(255, 255, 255, 0.84);
-  border-color: rgba(22, 32, 30, 0.1);
+  background: #ffffff;
+  border-color: var(--line);
 }
 
 .main-status-row {
@@ -265,16 +261,14 @@ button {
 .kb-card,
 .list-card {
   background: var(--surface);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: 24px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
   padding: 24px;
-  box-shadow: 0 10px 30px rgba(23, 53, 47, 0.05);
+  box-shadow: none;
 }
 
 .hero__copy {
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.64), rgba(255, 255, 255, 0.82)),
-    linear-gradient(120deg, rgba(238, 108, 77, 0.1), rgba(45, 106, 79, 0.14));
+  background: var(--surface);
 }
 
 .hero__copy h1 {
@@ -320,35 +314,44 @@ button {
   gap: 8px;
   padding: 8px 12px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.74);
-  border: 1px solid rgba(22, 32, 30, 0.08);
+  background: #f4f4f4;
+  border: 1px solid var(--line);
+}
+
+.eco-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 6px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid #b8d8bf;
+  background: #eef8f0;
+  color: #2f5b39;
+  font-size: 0.76rem;
+  font-weight: 600;
+  vertical-align: middle;
 }
 
 .hero__board {
-  background: linear-gradient(180deg, #183731 0%, #0f201d 100%);
-  color: white;
+  background: #f8f8f8;
+  color: var(--text);
   position: relative;
   overflow: hidden;
 }
 
 .hero__board::after {
-  content: '';
-  position: absolute;
-  inset: auto -10% -20% auto;
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(238, 108, 77, 0.45), transparent 70%);
+  content: none;
 }
 
 .hero__board .muted,
 .hero__board .pill {
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--muted);
 }
 
 .hero__board .pill {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.08);
+  background: #f4f4f4;
+  border-color: var(--line);
 }
 
 .steps {
@@ -458,6 +461,142 @@ button {
 .product-grid,
 .choice-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.knowledge-sectors {
+  display: grid;
+  gap: 14px;
+}
+
+.knowledge-sector {
+  border: 1px solid var(--line);
+  border-left: 4px solid #bdbdbd;
+  border-radius: 10px;
+  background: var(--surface);
+  padding: 16px;
+}
+
+.knowledge-sector--all {
+  border-left-color: #aaaaaa;
+}
+
+.knowledge-sector--agency {
+  border-left-color: #8f8f8f;
+}
+
+.knowledge-sector--producer {
+  border-left-color: #767676;
+}
+
+.knowledge-sector__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 12px;
+}
+
+.knowledge-sector__head h3 {
+  margin: 0 0 6px;
+}
+
+.knowledge-sector__head p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.sector-badge {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  white-space: nowrap;
+  color: var(--muted);
+  background: #f7f7f7;
+}
+
+.knowledge-list {
+  margin-top: 12px;
+}
+
+.products-toolbar {
+  display: grid;
+  gap: 10px;
+}
+
+.products-section-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.products-section-tabs .button.is-active {
+  background: #ffffff;
+  border-color: #9a9a9a;
+}
+
+.products-sections {
+  display: grid;
+  gap: 14px;
+}
+
+.product-section h3 {
+  margin: 0;
+}
+
+.products-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.product-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.product-card__head {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+.product-icon {
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #f7f7f7;
+  display: grid;
+  place-items: center;
+  color: #6f7e76;
+}
+
+.product-icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.product-icon svg * {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.product-mini-tag {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 8px;
+  font-size: 0.75rem;
+  color: var(--muted);
+  background: #f6f6f6;
 }
 
 .project-meta .chip,
@@ -751,6 +890,32 @@ button {
   margin-top: 18px;
 }
 
+.material-chips {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.material-chip {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #f8f8f8;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 10px;
+}
+
+.material-chip.is-active {
+  border-color: #9b9b9b;
+}
+
+.material-chip--eco {
+  border-color: #b8d8bf;
+  background: #f3fbf5;
+}
+
 .choice-card {
   padding: 18px;
   border-radius: 20px;
@@ -767,7 +932,7 @@ button {
 .choice-card:hover,
 .product-card:hover,
 .template-card:hover {
-  transform: translateY(-2px);
+  transform: none;
 }
 
 .form-grid {
@@ -946,9 +1111,11 @@ button {
   .form-grid,
   .summary-grid,
   .knowledge-grid,
+  .products-card-grid,
   .configurator-steps,
   .product-grid,
   .choice-grid,
+  .material-chips,
   .locked-grid,
   .editable-grid,
   .project-meta {
@@ -990,9 +1157,11 @@ button {
   .form-grid,
   .summary-grid,
   .knowledge-grid,
+  .products-card-grid,
   .configurator-steps,
   .product-grid,
   .choice-grid,
+  .material-chips,
   .locked-grid,
   .editable-grid,
   .project-meta {
@@ -1018,5 +1187,10 @@ button {
 
   .hero__copy h1 {
     font-size: 2.4rem;
+  }
+
+  .knowledge-sector__head {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

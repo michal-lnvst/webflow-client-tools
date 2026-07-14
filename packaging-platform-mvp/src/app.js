@@ -55,26 +55,182 @@ const templates = [
   }
 ];
 
-const knowledge = [
+const knowledgeSectors = [
   {
-    title: 'Co blokuje agencja?',
-    body: 'Logo, układ, kolory, typografia i obowiązkowe pola mogą być zamrożone. Klient edytuje tylko wyznaczone treści.',
-    tag: 'Kontrolowany edytor'
+    id: 'technical',
+    title: '1. Porady techniczne',
+    description: 'Przygotowanie plików i poprawne ustawienia przed produkcją.',
+    audience: 'all',
+    items: [
+      'Jak przygotować pliki PDF pod druk (spady, marginesy bezpieczne, osadzone fonty).',
+      'Jak dobrać format etykiety do produktu i wykrojnika.',
+      'Jak działa preflight i które błędy blokują produkcję.'
+    ]
   },
   {
-    title: 'Kiedy pokazujemy opcję eko?',
-    body: 'Zawsze. MVP priorytetyzuje odpowiedzialny wariant materiału i ostrzega przy zbędnym laminowaniu lub miksie trudnym do recyklingu.',
-    tag: 'Materiały'
+    id: 'eco',
+    title: '2. Porady ekologiczne',
+    description: 'Jak planować markę i opakowanie, aby były bardziej eko od początku.',
+    audience: 'all',
+    items: [
+      'Jak wybierać materiały i wykończenia łatwiejsze w recyklingu.',
+      'Jak ograniczyć nadmiar uszlachetnień bez utraty jakości odbioru marki.',
+      'Jak planować serię produktów pod jeden spójny system opakowań.'
+    ]
   },
   {
-    title: 'Po co reminder za 3 miesiące?',
-    body: 'Po zatwierdzeniu projektu można zaplanować automatyczne przypomnienie o wznowieniu, gdy zapas etykiet zacznie się kończyć.',
-    tag: 'Domówienia'
+    id: 'compliance',
+    title: '3. Porady compliance',
+    description: 'Co musi znaleźć się na etykiecie i jakiej wielkości elementy są wymagane.',
+    audience: 'all',
+    items: [
+      'Lista obowiązkowych pól dla kategorii produktu (np. wino, kosmetyki, spożywcze).',
+      'Minimalne wielkości tekstu i zasady czytelności.',
+      'Jak uniknąć błędów formalnych przed akceptacją projektu.'
+    ]
   },
   {
-    title: 'Jak działa preflight?',
-    body: 'W MVP pokazujemy checklistę: format, spady, rozdzielczość, pola obowiązkowe i ryzyka produkcyjne. To miejsce później pod automatyzację.',
-    tag: 'Pliki'
+    id: 'agency-affiliate',
+    title: '4. Program afiliacyjny',
+    description: 'WIDOK TYLKO DLA AGENCJI: jak działa program afiliacyjny.',
+    audience: 'agency',
+    items: [
+      'Zasady naliczania prowizji i progi partnerskie.',
+      'Jak śledzić leady i zamówienia przypisane do agencji.',
+      'Jak raportować wyniki i rozliczać kampanie partnerskie.'
+    ]
+  },
+  {
+    id: 'producer-templates',
+    title: '5. Praca z szablonami',
+    description: 'WIDOK TYLKO DLA PRODUCENTÓW: jak korzystać z szablonów.',
+    audience: 'producer',
+    items: [
+      'Jak wybrać szablon pod kategorię i format produktu.',
+      'Które pola możesz edytować samodzielnie, a które są zablokowane.',
+      'Jak zapisać wariant i wrócić do niego przy kolejnym zamówieniu.'
+    ]
+  },
+  {
+    id: 'producer-brand-course',
+    title: '6. Specjalny dział: kurs budowania marki',
+    description: 'WIDOK TYLKO DLA PRODUCENTÓW: kurs budowania marki krok po kroku (cykl webinarów).',
+    audience: 'producer',
+    items: [
+      'Moduł 1: pozycjonowanie marki i architektura oferty.',
+      'Moduł 2: język marki, opakowanie i spójność komunikacji.',
+      'Moduł 3: wdrożenie na półce i plan skalowania sprzedaży.'
+    ]
+  },
+  {
+    id: 'agency-digital-course',
+    title: '7. Specjalny dział: kurs produktów cyfrowych',
+    description: 'WIDOK TYLKO DLA AGENCJI: kurs budowania produktów cyfrowych dla agencji krok po kroku (cykl webinarów).',
+    audience: 'agency',
+    items: [
+      'Moduł 1: model produktowy i wycena usług agencyjnych.',
+      'Moduł 2: onboarding klienta i automatyzacja procesu realizacji.',
+      'Moduł 3: rozwój retencji i skalowanie przychodów.'
+    ]
+  }
+];
+
+const PRODUCT_CATALOG = [
+  {
+    id: 'wine-roll-label',
+    name: 'Etykieta na wino classic',
+    type: 'Etykiety na rolce',
+    applications: ['wino'],
+    material: 'Papier FSC',
+    format: '90 x 120 mm'
+  },
+  {
+    id: 'sparkling-neck-label',
+    name: 'Etykieta na szyjke butelki',
+    type: 'Etykiety na rolce',
+    applications: ['wino', 'piwo'],
+    material: 'Papier metalizowany',
+    format: '30 x 100 mm'
+  },
+  {
+    id: 'honey-jar-label',
+    name: 'Etykieta na sloik miodu',
+    type: 'Etykiety premium',
+    applications: ['miod', 'spozywcze'],
+    material: 'Papier monomaterialowy',
+    format: '70 x 70 mm'
+  },
+  {
+    id: 'beer-label',
+    name: 'Etykieta kraft na piwo',
+    type: 'Etykiety premium',
+    applications: ['piwo'],
+    material: 'Papier strukturalny',
+    format: '85 x 110 mm'
+  },
+  {
+    id: 'cosmetic-front-back',
+    name: 'Komplet etykiet na kosmetyki',
+    type: 'Etykiety na rolce',
+    applications: ['kosmetyki'],
+    material: 'Folia rPET',
+    format: '60 x 90 mm'
+  },
+  {
+    id: 'doypack-flat-bottom',
+    name: 'Doypack flat bottom',
+    type: 'Opakowania foliowe',
+    applications: ['spozywcze', 'suplementy'],
+    material: 'Mono PE',
+    format: '130 x 225 mm'
+  },
+  {
+    id: 'zip-pouch',
+    name: 'Woreczek strunowy z nadrukiem',
+    type: 'Opakowania foliowe',
+    applications: ['kawa i herbata', 'suplementy'],
+    material: 'Mono PP',
+    format: '160 x 240 mm'
+  },
+  {
+    id: 'wine-box-carton',
+    name: 'Pudelko kartonowe na wino',
+    type: 'Pudelka z nadrukiem',
+    applications: ['wino'],
+    material: 'Karton GC1',
+    format: '90 x 90 x 330 mm'
+  },
+  {
+    id: 'gift-box-cosmetics',
+    name: 'Pudelko premium na zestaw kosmetyczny',
+    type: 'Pudelka z nadrukiem',
+    applications: ['kosmetyki'],
+    material: 'Karton kraft',
+    format: '220 x 160 x 80 mm'
+  },
+  {
+    id: 'shrink-sleeve-can',
+    name: 'Sleeve termokurczliwy na puszke',
+    type: 'Sleeve i banderole',
+    applications: ['piwo', 'spozywcze'],
+    material: 'PET-G',
+    format: 'Obwod 210 mm'
+  },
+  {
+    id: 'logistics-label',
+    name: 'Etykieta logistyczna transportowa',
+    type: 'Etykiety specjalistyczne',
+    applications: ['chemia', 'spozywcze'],
+    material: 'Folia PP',
+    format: '100 x 150 mm'
+  },
+  {
+    id: 'chemical-resistant-label',
+    name: 'Etykieta odporna na chemie',
+    type: 'Etykiety specjalistyczne',
+    applications: ['chemia'],
+    material: 'Folia PE',
+    format: '80 x 120 mm'
   }
 ];
 
@@ -183,8 +339,8 @@ const configuratorSteps = [
   'Rodzaj etykiety',
   'Format i material',
   'Srodowisko',
-  'Tresci obowiazkowe',
-  'Pliki i podglad',
+  'Plik lub szablon',
+  'Compliance i tresci',
   'Wycena i zamowienie'
 ];
 
@@ -192,8 +348,8 @@ const configuratorHelp = [
   'Kategoria produktu decyduje o tym, jakie informacje prawne i rekomendacje pokazywane sa w kolejnych krokach.',
   'Material i wykonczenie wplywaja na cene oraz na ocene srodowiskowa. Zawsze pokazujemy alternatywe eko.',
   'Sprawdzamy, czy wybrane materialy i wykonczenia dobrze wspolgraja pod katem recyklingu.',
-  'Etykieta na wino wymaga m.in. kraju pochodzenia, alkoholu, pojemnosci i numeru partii.',
-  'Przeslij plik projektu - sprawdzimy format, spady i rozdzielczosc przed produkcja.',
+  'Wybierz zrodlo projektu: przeslij plik albo skorzystaj z gotowego szablonu.',
+  'Sprawdzamy compliance krok po kroku: czy wszystkie wymagane elementy sa uzupelnione i w poprawnej kolejnosci.',
   'Sprawdz wycene, wybierz dostawe i zloz zamowienie. Potem mozna latwo domowic.'
 ];
 
@@ -215,6 +371,9 @@ const appState = {
   configFinish: 'brak',
   delivery: 'Kurier',
   fileUploaded: false,
+  designSource: 'file',
+  productsSearch: '',
+  productsSection: 'all',
   orderPlaced: false,
   reminderOn: true,
   environmentalDecision: 'Rekomendowany wariant eko',
@@ -248,10 +407,8 @@ const appState = {
 
 const views = [
   ['overview', 'Przegląd'],
-  ['onboarding', 'Onboarding'],
-  ['dashboard', 'Dashboard'],
+  ['products', 'Produkty'],
   ['configurator', 'Konfigurator'],
-  ['editor', 'Projekt'],
   ['order', 'Wycena i zamówienie'],
   ['knowledge', 'Baza wiedzy']
 ];
@@ -305,6 +462,14 @@ function getMaterialById(id) {
   return CONFIG_MATERIALS.find((material) => material.id === id) ?? CONFIG_MATERIALS[0];
 }
 
+function renderEcoMarker(isEco) {
+  if (!isEco) {
+    return '';
+  }
+
+  return '<span class="eco-mark" aria-label="Opcja ekologiczna">🍃 eko</span>';
+}
+
 function calculateConfiguratorPrice() {
   const matBase = {
     papier_std: 0.14,
@@ -340,117 +505,238 @@ function renderNav() {
 }
 
 function renderOverview() {
-  const template = getTemplate();
+  const agencyFlow = [
+    'Agencja tworzy klienta i projekt bazowy',
+    'Ustala blokady i pola edytowalne',
+    'Klient uzupełnia tylko dozwolone treści',
+    'Preflight sprawdza kompletność i gotowość',
+    'Platforma wycenia, uruchamia produkcję i przypomina o wznowieniu'
+  ];
+
+  const clientFlow = [
+    'Wybiera produkt, format i gotowy szablon',
+    'Dodaje logo, nazwę produktu i wymagane informacje',
+    'Personalizuje projekt w ramach bezpiecznych ustawień',
+    'Preflight sprawdza kompletność, czytelność i gotowość do druku',
+    'Platforma wycenia, uruchamia produkcję i zapisuje projekt do ponownego zamówienia'
+  ];
+
   return `
     <section class="view ${appState.currentView === 'overview' ? 'is-active' : ''}" id="view-overview">
-      <div class="hero">
-        <article class="panel hero__copy">
-          <div class="eyebrow">MVP platformy B2B do etykiet i opakowań</div>
-          <h1>Packflow OS prowadzi od briefu do domówienia.</h1>
-          <p>
-            To nie jest kreator wszystkiego dla wszystkich. To kontrolowany proces dla agencji,
-            marek i producentów, którzy muszą utrzymać spójność brandu, zgodność z wymaganiami i
-            gotowość do produkcji.
-          </p>
-          <div class="pills">
-            <div class="pill">2 ścieżki: agencja i producent</div>
-            <div class="pill">Reguły produktu i obowiązkowe pola</div>
-            <div class="pill">Wycena, preflight i reminder wznowień</div>
-          </div>
-          <div class="quick-actions" style="margin-top: 24px; grid-template-columns: repeat(2, minmax(0, max-content));">
-            <button class="button button--primary" data-goto="onboarding">Przejdź do onboardingu</button>
-            <button class="button button--ghost" data-goto="configurator">Zobacz konfigurator</button>
-          </div>
+      <article class="panel hero__copy">
+        <div class="eyebrow">MVP platformy B2B do etykiet i opakowań</div>
+        <p>
+          Ten ekran pokazuje tylko dwie główne ścieżki procesu. Każda prowadzi od wyboru produktu
+          do gotowości produkcyjnej i ponownego zamówienia.
+        </p>
+        <div class="quick-actions" style="margin-top: 20px; grid-template-columns: repeat(2, minmax(0, max-content));">
+          <button class="button button--primary" data-goto="configurator">Przejdź do konfiguratora</button>
+          <button class="button button--ghost" data-goto="order">Zobacz wycenę</button>
+        </div>
+      </article>
+
+      <div class="section-head" style="margin-top: 18px;">
+        <div class="section-title">
+          <h2>Co pokazuje ten MVP</h2>
+          <p>Najmniejszy sensowny zakres do rozmowy o produkcie i procesie.</p>
+        </div>
+      </div>
+
+      <div class="dashboard-grid" style="margin-top: 12px;">
+        <article class="card">
+          <h3>Co jest zamarkowane</h3>
+          <p class="muted">Zakres obejmuje kluczowe etapy od przygotowania projektu do domowienia kolejnych partii.</p>
         </article>
-        <aside class="panel hero__board">
-          <div class="eyebrow">Przykładowy przepływ</div>
-          <h3>Agencja buduje standard, klient zamawia kolejne warianty bez chaosu.</h3>
+
+        <article class="card">
+          <h3>Typy kont</h3>
+          <p class="muted">Pokazujemy role i logikę wspolpracy: agencja przygotowuje standard, klient domawia warianty.</p>
+        </article>
+
+        <article class="card">
+          <h3>Listing Produktow</h3>
+          <p class="muted">Widoczna baza produktow z podstawowymi opcjami, tagami zastosowan i szybkim filtrowaniem.</p>
+        </article>
+
+        <article class="card">
+          <h3>Kontrola i soft compliance</h3>
+          <p class="muted">Obowiazkowe pola, eko alert, wycena druku oraz reminder domowienia.</p>
+        </article>
+      </div>
+
+      <div class="dashboard-grid" style="margin-top: 18px;">
+        <article class="card">
+          <h3>Przepływ: Agencja</h3>
           <div class="steps">
-            ${[
-              'Agencja tworzy klienta i projekt bazowy',
-              'Ustala blokady i pola edytowalne',
-              'Klient uzupełnia tylko dozwolone treści',
-              'Preflight sprawdza kompletność i gotowość',
-              'Platforma wycenia, uruchamia produkcję i przypomina o wznowieniu'
-            ]
+            ${agencyFlow
               .map(
                 (item, index) => `
                   <div class="steps__item">
                     <div class="steps__index">0${index + 1}</div>
-                    <div>
-                      <strong>${item}</strong>
-                    </div>
-                    <span class="pill">MVP</span>
+                    <div><strong>${item}</strong></div>
                   </div>
                 `
               )
               .join('')}
           </div>
-        </aside>
-      </div>
-
-      <div class="section-head">
-        <div class="section-title">
-          <h2>Co już pokazuje ten MVP</h2>
-          <p>Najmniejszy sensowny zakres do rozmowy o produkcie, procesie i hostingu.</p>
-        </div>
-      </div>
-
-      <div class="stats-grid">
-        <article class="card stat">
-          <span class="eyebrow">Typy kont</span>
-          <strong>2</strong>
-          <span>Agencja/studio oraz producent/marka</span>
         </article>
-        <article class="card stat">
-          <span class="eyebrow">Produkty</span>
-          <strong>${templates.length}</strong>
-          <span>Na razie demo dla etykiet i opakowań z regułami</span>
-        </article>
-        <article class="card stat">
-          <span class="eyebrow">Kontrole</span>
-          <strong>5</strong>
-          <span>Obowiązkowe pola, eko alert, preflight, wycena, reminder</span>
-        </article>
-        <article class="card stat">
-          <span class="eyebrow">Tryb demo</span>
-          <strong>100%</strong>
-          <span>Statycznie, gotowe do GitHub Pages</span>
-        </article>
-      </div>
 
-      <div class="section-head">
-        <div class="section-title">
-          <h2>Aktualny template demo</h2>
-          <p>Poniżej stan, który przechodzi przez konfigurator, kontrolowany edytor i wycenę.</p>
-        </div>
-      </div>
-
-      <div class="dashboard-grid">
         <article class="card">
-          <h3>${template.name}</h3>
-          <div class="project-meta">
-            <div class="chip">Format: ${template.format}</div>
-            <div class="chip">Materiał: ${template.material}</div>
-            <div class="chip">Wykończenie: ${appState.finish}</div>
-            <div class="chip">Eko: ${template.eco}</div>
+          <h3>Przepływ: Klient</h3>
+          <div class="steps">
+            ${clientFlow
+              .map(
+                (item, index) => `
+                  <div class="steps__item">
+                    <div class="steps__index">0${index + 1}</div>
+                    <div><strong>${item}</strong></div>
+                  </div>
+                `
+              )
+              .join('')}
           </div>
-          <ul class="list">
-            ${template.obligatory.map((item) => `<li>${item}</li>`).join('')}
-          </ul>
+        </article>
+      </div>
+    </section>
+  `;
+}
+
+function renderProductIcon(product) {
+  const tag = product.applications[0] ?? '';
+
+  if (tag === 'wino') {
+    return `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 2h6v4l-1 2v2.5l2.5 3v8.5h-9V13.5l2.5-3V8L9 6z" />
+      </svg>
+    `;
+  }
+
+  if (tag === 'piwo') {
+    return `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M5 7h10v14H5z" />
+        <path d="M15 9h3a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-3z" />
+        <path d="M6 5h8v2H6z" />
+      </svg>
+    `;
+  }
+
+  if (tag === 'miod') {
+    return `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7 4h10v3H7z" />
+        <path d="M6 7h12v13H6z" />
+      </svg>
+    `;
+  }
+
+  if (tag === 'kosmetyki') {
+    return `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M10 3h4v3h-4z" />
+        <path d="M8 6h8v15H8z" />
+      </svg>
+    `;
+  }
+
+  if (product.name.toLowerCase().includes('pudelko')) {
+    return `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 8l9-4 9 4-9 4z" />
+        <path d="M3 8v10l9 4 9-4V8" />
+      </svg>
+    `;
+  }
+
+  if (product.name.toLowerCase().includes('doypack') || product.name.toLowerCase().includes('woreczek')) {
+    return `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7 3h10l-1 18H8z" />
+        <path d="M9 8h6" stroke="currentColor" stroke-width="1.5" fill="none" />
+      </svg>
+    `;
+  }
+
+  return `
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M4 7h16v11H4z" />
+      <path d="M7 4h10v3H7z" />
+    </svg>
+  `;
+}
+
+function renderProducts() {
+  const search = appState.productsSearch.trim().toLowerCase();
+  const filteredProducts = PRODUCT_CATALOG.filter((product) => {
+    const haystack = `${product.name} ${product.applications.join(' ')}`.toLowerCase();
+    return search.length === 0 || haystack.includes(search);
+  });
+
+  const sections = [...new Set(PRODUCT_CATALOG.flatMap((product) => product.applications))];
+
+  const activeSection = sections.includes(appState.productsSection) ? appState.productsSection : 'all';
+  const visibleProducts = filteredProducts.filter((product) =>
+    activeSection === 'all' ? true : product.applications.includes(activeSection)
+  );
+
+  return `
+    <section class="view ${appState.currentView === 'products' ? 'is-active' : ''}" id="view-products">
+      <div class="section-head">
+        <div class="section-title">
+          <h2>Produkty</h2>
+          <p>Listing etykiet i opakowan z dynamiczna wyszukiwarka i filtrowaniem po tagach zastosowan.</p>
+        </div>
+      </div>
+
+      <div class="products-toolbar card">
+        <label class="field-block" style="margin-top: 12px;">
+          <span>Wyszukiwarka produktow</span>
+          <input class="field" name="productsSearch" value="${appState.productsSearch}" placeholder="Szukaj: wino, doypack, kosmetyki, sleeve..." />
+        </label>
+
+        <div class="products-section-tabs" style="margin-top: 12px;">
+          <button class="button button--ghost ${activeSection === 'all' ? 'is-active' : ''}" data-products-section="all">Wszystkie</button>
+          ${sections
+            .map((section) => {
+              const count = filteredProducts.filter((product) => product.applications.includes(section)).length;
+
+              return `<button class="button button--ghost ${activeSection === section ? 'is-active' : ''}" data-products-section="${section}">${section} (${count})</button>`;
+            })
+            .join('')}
+        </div>
+      </div>
+
+      <div style="margin-top: 16px;" class="products-sections">
+        <article class="card product-section">
+          <div class="products-card-grid">
+            ${visibleProducts
+              .map(
+                (product) => `
+                  <div class="product-card">
+                    <div class="product-card__head">
+                      <span class="product-icon">${renderProductIcon(product)}</span>
+                      <strong>${product.name}</strong>
+                    </div>
+                    <div class="product-tag-row" style="margin-top: 8px;">
+                      ${product.applications.map((tag) => `<span class="product-mini-tag">${tag}</span>`).join('')}
+                    </div>
+                  </div>
+                `
+              )
+              .join('')}
+          </div>
         </article>
 
-        <article class="preview-card">
-          <h3>Dlaczego GitHub Pages ma sens?</h3>
-          <p>
-            Ten MVP nie wymaga backendu. Działa jako statyczne SPA z mockowanymi danymi, więc można
-            je bezproblemowo wystawić na GitHub Pages, a później podmienić źródła danych lub dołożyć API.
-          </p>
-          <div class="footer-note">
-            <strong>W kolejnym kroku</strong>
-            <p class="muted">Najbardziej naturalna ewolucja to logowanie, prawdziwy preflight plików i silnik cenowy.</p>
-          </div>
-        </article>
+        ${
+          visibleProducts.length === 0
+            ? `
+              <div class="warning">
+                Brak produktow dla wyszukiwanej frazy. Sprobuj innej nazwy albo zastosowania.
+              </div>
+            `
+            : ''
+        }
       </div>
     </section>
   `;
@@ -675,6 +961,37 @@ function renderConfigurator() {
   const helpText = configuratorHelp[appState.configuratorStep];
   const previewSugarLine = appState.legal.isSparkling ? appState.legal.sugar : '';
   const previewAllergenLine = appState.legal.hasSiarczyny ? 'Zawiera siarczyny.' : '';
+  const sourceReady = appState.designSource === 'template' || appState.fileUploaded;
+  const complianceChecks = [
+    {
+      label: 'Zrodlo projektu (plik lub szablon)',
+      ok: sourceReady
+    },
+    {
+      label: 'Kraj pochodzenia',
+      ok: appState.legal.country.trim().length > 0
+    },
+    {
+      label: 'Zawartosc alkoholu',
+      ok: appState.legal.abv.trim().length > 0
+    },
+    {
+      label: 'Pojemnosc nominalna',
+      ok: appState.legal.volume.trim().length > 0
+    },
+    {
+      label: 'Numer partii',
+      ok: appState.legal.batch.trim().length > 0
+    },
+    {
+      label: 'Alergeny (siarczyny)',
+      ok: appState.legal.hasSiarczyny
+    },
+    {
+      label: 'Skladniki i wartosc odzywcza (QR lub tekst)',
+      ok: appState.legal.qrEnabled
+    }
+  ];
 
   return `
     <section class="view ${appState.currentView === 'configurator' ? 'is-active' : ''}" id="view-configurator">
@@ -685,10 +1002,6 @@ function renderConfigurator() {
             <strong>Drukomat</strong>
           </div>
           <div class="muted">Konfigurator · Etykieta na wino</div>
-          <div class="config-role">
-            <button class="config-role__button ${!roleIsAgency ? 'is-active' : ''}" data-config-role="producer">Producent</button>
-            <button class="config-role__button ${roleIsAgency ? 'is-active' : ''}" data-config-role="agency">Agencja</button>
-          </div>
         </div>
 
         ${
@@ -753,6 +1066,8 @@ function renderConfigurator() {
                 ecoSummaryText,
                 showEcoWarning,
                 preflightChecks,
+                complianceChecks,
+                sourceReady,
                 priceRows,
                 previewSugarLine,
                 previewAllergenLine
@@ -787,6 +1102,8 @@ function renderConfiguratorStepContent(
     ecoSummaryText,
     showEcoWarning,
     preflightChecks,
+    complianceChecks,
+    sourceReady,
     priceRows,
     previewSugarLine,
     previewAllergenLine
@@ -830,7 +1147,7 @@ function renderConfiguratorStepContent(
             ${CONFIG_MATERIALS.map(
               (material) =>
                 `<option value="${material.id}" ${appState.materialChoice === material.id ? 'selected' : ''}>${material.label}${
-                  material.eco ? ' · eko' : ''
+                  material.eco ? ' · eko 🍃' : ''
                 }</option>`
             ).join('')}
           </select>
@@ -860,6 +1177,19 @@ function renderConfiguratorStepContent(
             ).join('')}
           </select>
         </label>
+      </div>
+      <div class="material-chips" style="margin-top: 14px;">
+        ${CONFIG_MATERIALS.map(
+          (material) => `
+            <div class="material-chip ${material.eco ? 'material-chip--eco' : ''} ${appState.materialChoice === material.id ? 'is-active' : ''}">
+              <div>
+                <strong>${material.label}</strong>
+                <p class="muted" style="margin: 4px 0 0;">${material.desc}</p>
+              </div>
+              ${renderEcoMarker(material.eco)}
+            </div>
+          `
+        ).join('')}
       </div>
     `;
   }
@@ -903,6 +1233,105 @@ function renderConfiguratorStepContent(
 
   if (appState.configuratorStep === 3) {
     return `
+      <div class="choice-grid" style="margin-top: 14px;">
+        <button class="choice-card ${appState.designSource === 'file' ? 'is-active' : ''}" data-config-source="file">
+          <strong>Dodaj plik projektu</strong>
+          <p class="muted">PDF lub AI, ze spadami 3 mm i CMYK.</p>
+        </button>
+        <button class="choice-card ${appState.designSource === 'template' ? 'is-active' : ''}" data-config-source="template">
+          <strong>Wybierz gotowy szablon</strong>
+          <p class="muted">Skorzystaj z predefiniowanego wzorca i przejdz dalej.</p>
+        </button>
+      </div>
+
+      ${
+        appState.designSource === 'file'
+          ? `
+            ${
+              appState.fileUploaded
+                ? `
+                  <div class="card" style="margin-top: 12px;">
+                    <strong>projekt_wino_rumunia_v3.ai</strong>
+                    <p class="muted">4.2 MB · przeslano teraz</p>
+                    <button class="button button--ghost" data-config-action="remove-file">Usun plik</button>
+                  </div>
+                `
+                : `
+                  <div class="warning" style="margin-top: 12px; text-align: center;">
+                    <strong>Przeciagnij plik lub wybierz z dysku</strong>
+                    <p class="muted">PDF, AI · spady 3 mm · CMYK</p>
+                    <button class="button button--primary" data-config-action="upload-file">Symuluj przeslanie pliku</button>
+                  </div>
+                `
+            }
+          `
+          : `
+            <div class="card" style="margin-top: 12px;">
+              <strong>Wybierz szablon bazowy</strong>
+              <div class="product-grid" style="margin-top: 12px;">
+                ${templates
+                  .map(
+                    (item) => `
+                      <button class="product-card ${appState.templateId === item.id ? 'is-active' : ''}" data-template-id="${item.id}">
+                        <strong>${item.name}</strong>
+                        <p class="muted">${item.format} · ${item.material}</p>
+                      </button>
+                    `
+                  )
+                  .join('')}
+              </div>
+              <div class="mini-card" style="margin-top: 12px;">
+                <strong>Wybrany szablon</strong>
+                <p class="muted">${template.name}</p>
+              </div>
+            </div>
+          `
+      }
+
+      <div class="dashboard-grid" style="margin-top: 14px;">
+        <div class="card">
+          <h3>Kontrola techniczna</h3>
+          <ul class="list">
+            ${preflightChecks
+              .map((check) => `<li>${check.ok ? '✓' : '⚠'} ${check.label}</li>`)
+              .join('')}
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Mockup</h3>
+          <p class="muted">Podglad wg wybranego formatu i materialu.</p>
+        </div>
+      </div>
+    `;
+  }
+
+  if (appState.configuratorStep === 4) {
+    return `
+      <div class="card" style="margin-top: 12px;">
+        <h3>Compliance checklista (po kolei)</h3>
+        <ol class="list" style="padding-left: 20px;">
+          ${complianceChecks
+            .map(
+              (check) => `
+                <li>
+                  ${check.ok ? '✓' : '⚠'} ${check.label}
+                </li>
+              `
+            )
+            .join('')}
+        </ol>
+      </div>
+
+      ${
+        !sourceReady
+          ? `
+            <div class="warning" style="margin-top: 12px;">
+              Najpierw wybierz plik albo szablon w poprzednim kroku, aby przejsc pelny compliance.
+            </div>
+          `
+          : ''
+      }
+
       <div class="form-grid" style="margin-top: 12px;">
         <label class="field-block">
           <span>Kraj pochodzenia</span>
@@ -960,44 +1389,6 @@ function renderConfiguratorStepContent(
     `;
   }
 
-  if (appState.configuratorStep === 4) {
-    return `
-      ${
-        appState.fileUploaded
-          ? `
-            <div class="card" style="margin-top: 12px;">
-              <strong>projekt_wino_rumunia_v3.ai</strong>
-              <p class="muted">4.2 MB · przeslano teraz</p>
-              <button class="button button--ghost" data-config-action="remove-file">Usun</button>
-            </div>
-          `
-          : `
-            <div class="warning" style="margin-top: 12px; text-align: center;">
-              <strong>Przeciagnij plik lub wybierz z dysku</strong>
-              <p class="muted">PDF, AI · spady 3 mm · CMYK</p>
-              <button class="button button--primary" data-config-action="upload-file">Symuluj przeslanie pliku</button>
-            </div>
-          `
-      }
-      <div class="dashboard-grid" style="margin-top: 14px;">
-        <div class="card">
-          <h3>Kontrola automatyczna</h3>
-          <ul class="list">
-            ${preflightChecks
-              .map(
-                (check) => `<li>${check.ok ? '✓' : '⚠'} ${check.label}</li>`
-              )
-              .join('')}
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Mockup</h3>
-          <p class="muted">Podglad wg wybranego formatu i materialu.</p>
-        </div>
-      </div>
-    `;
-  }
-
   return `
     ${
       !appState.orderPlaced
@@ -1046,7 +1437,7 @@ function renderConfiguratorStepContent(
     }
     <div class="alert" style="margin-top: 16px;">
       <strong>Template:</strong> ${template.name}<br />
-      <strong>Material:</strong> ${selectedMaterial.label}<br />
+      <strong>Material:</strong> ${selectedMaterial.label} ${renderEcoMarker(selectedMaterial.eco)}<br />
       <strong>Wykonczenie:</strong> ${getFinishLabelById(appState.configFinish)}
     </div>
   `;
@@ -1162,6 +1553,8 @@ function renderEditor() {
 
 function renderOrder() {
   const quote = calculateQuote();
+  const selectedMaterial = getMaterialById(appState.materialChoice);
+
   return `
     <section class="view ${appState.currentView === 'order' ? 'is-active' : ''}" id="view-order">
       <div class="section-head">
@@ -1181,7 +1574,7 @@ function renderOrder() {
             </div>
             <div class="summary-row">
               <span>Materiał</span>
-              <strong>${getTemplate().material}</strong>
+              <strong>${selectedMaterial.label} ${renderEcoMarker(selectedMaterial.eco)}</strong>
             </div>
             <div class="summary-row">
               <span>Nakład</span>
@@ -1217,33 +1610,14 @@ function renderOrder() {
         </article>
 
         <aside class="preview-card">
-          <h3>Szacunkowa wycena</h3>
+          <h3>Wycena</h3>
           <div class="summary-row" style="margin-top: 18px;">
-            <span>Produkcja</span>
+            <span>Druk</span>
             <strong>${formatPrice(quote.production)}</strong>
           </div>
-          <div class="summary-row">
-            <span>Przygotowanie i template</span>
-            <strong>${formatPrice(quote.service)}</strong>
-          </div>
-          <div class="summary-row">
-            <span>Preflight</span>
-            <strong>${formatPrice(quote.preflight)}</strong>
-          </div>
-          <div class="summary-row">
-            <span>Razem</span>
-            <strong>${formatPrice(quote.total)}</strong>
-          </div>
           <div class="footer-note">
-            <strong>Lead time: ${quote.leadTime}</strong>
-            <p class="muted">Statusy realizacji: przygotowanie pliku → akceptacja → produkcja → wysyłka.</p>
+            <strong>Czas realizacji: 3 dni</strong>
           </div>
-          <ul class="timeline">
-            <li><span>Projekt zatwierdzony</span><strong>Dziś</strong></li>
-            <li><span>Plik trafia do produkcji</span><strong>+1 dzień</strong></li>
-            <li><span>Wysyłka</span><strong>${quote.leadTime}</strong></li>
-            <li><span>Reminder o wznowieniu</span><strong>+${appState.reminderMonths} mies.</strong></li>
-          </ul>
         </aside>
       </div>
     </section>
@@ -1251,53 +1625,44 @@ function renderOrder() {
 }
 
 function renderKnowledge() {
+  const role = appState.accountType === 'agency' ? 'agency' : 'producer';
+  const roleLabel = role === 'agency' ? 'Agencja / studio' : 'Producent / marka';
+  const visibleSectors = knowledgeSectors.filter((sector) => sector.audience === 'all' || sector.audience === role);
+
   return `
     <section class="view ${appState.currentView === 'knowledge' ? 'is-active' : ''}" id="view-knowledge">
       <div class="section-head">
         <div class="section-title">
-          <h2>Baza wiedzy i mikrotreści</h2>
-          <p>Małe bloki wiedzy, które później można osadzać przy zamówieniu, w preflight lub w dashboardzie.</p>
+          <h2>Baza wiedzy</h2>
+          <p>Sektory wspólne i dedykowane dla roli: <strong>${roleLabel}</strong>.</p>
         </div>
       </div>
 
-      <div class="knowledge-grid">
-        ${knowledge
+      <div class="knowledge-sectors">
+        ${visibleSectors
           .map(
-            (item) => `
-              <article class="kb-card">
-                <span class="pill">${item.tag}</span>
-                <h3>${item.title}</h3>
-                <p>${item.body}</p>
+            (sector) => `
+              <article class="knowledge-sector knowledge-sector--${sector.audience}">
+                <header class="knowledge-sector__head">
+                  <div>
+                    <h3>${sector.title}</h3>
+                    <p>${sector.description}</p>
+                  </div>
+                  <span class="sector-badge">${
+                    sector.audience === 'all'
+                      ? 'Wspólne'
+                      : sector.audience === 'agency'
+                        ? 'Tylko agencja'
+                        : 'Tylko producent'
+                  }</span>
+                </header>
+                <ul class="list knowledge-list">
+                  ${sector.items.map((entry) => `<li>${entry}</li>`).join('')}
+                </ul>
               </article>
             `
           )
           .join('')}
-      </div>
-
-      <div class="dashboard-grid" style="margin-top: 20px;">
-        <article class="list-card">
-          <h3>Dla projektantów</h3>
-          <ul class="list">
-            <li>Jak działa platforma</li>
-            <li>Prześlij projekt klienta</li>
-            <li>Pracuj na wykrojnikach</li>
-            <li>Twórz warianty produktu</li>
-            <li>Przekaż projekt do zamówienia</li>
-            <li>Zarządzaj wznowieniami</li>
-            <li>Program partnerski</li>
-          </ul>
-        </article>
-
-        <article class="list-card">
-          <h3>Rozszerzenia po MVP</h3>
-          <ul class="list">
-            <li>Upload plików i prawdziwy parser PDF/AI</li>
-            <li>Role per klient i per projekt</li>
-            <li>API do silnika cenowego i magazynu materiałów</li>
-            <li>Zasilenie bazy produktów realnym katalogiem</li>
-            <li>Powiadomienia mailowe i taski akceptacyjne</li>
-          </ul>
-        </article>
       </div>
     </section>
   `;
@@ -1310,12 +1675,12 @@ function render() {
         <div class="brand">
           <div class="brand__mark">P</div>
           <div class="brand__text">
-            <strong>Packflow OS</strong>
+            <strong>Origama</strong>
             <span>MVP platformy etykiet i opakowań</span>
           </div>
         </div>
         <div class="topbar__actions">
-          <button class="button button--ghost" data-goto="dashboard">Dashboard</button>
+          <button class="button button--ghost" data-goto="configurator">Konfigurator</button>
           <button class="button button--dark" data-goto="order">Pokaż wycenę</button>
         </div>
       </header>
@@ -1332,10 +1697,8 @@ function render() {
 
       <main class="content">
         ${renderOverview()}
-        ${renderOnboarding()}
-        ${renderDashboard()}
+        ${renderProducts()}
         ${renderConfigurator()}
-        ${renderEditor()}
         ${renderOrder()}
         ${renderKnowledge()}
       </main>
@@ -1399,9 +1762,9 @@ function bindEvents() {
     });
   });
 
-  document.querySelectorAll('[data-config-role]').forEach((button) => {
+  document.querySelectorAll('[data-config-source]').forEach((button) => {
     button.addEventListener('click', () => {
-      appState.accountType = button.dataset.configRole;
+      appState.designSource = button.dataset.configSource;
       render();
     });
   });
@@ -1409,6 +1772,13 @@ function bindEvents() {
   document.querySelectorAll('[data-state-field][data-state-value]').forEach((button) => {
     button.addEventListener('click', () => {
       appState[button.dataset.stateField] = button.dataset.stateValue;
+      render();
+    });
+  });
+
+  document.querySelectorAll('[data-products-section]').forEach((button) => {
+    button.addEventListener('click', () => {
+      appState.productsSection = button.dataset.productsSection;
       render();
     });
   });
@@ -1458,6 +1828,7 @@ function bindEvents() {
         appState.configuratorStep = 0;
         appState.orderPlaced = false;
         appState.fileUploaded = false;
+        appState.designSource = 'file';
       }
 
       render();
