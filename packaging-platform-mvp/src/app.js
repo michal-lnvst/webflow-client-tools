@@ -998,8 +998,8 @@ function renderConfigurator() {
       <div class="config-shell">
         <div class="config-header">
           <div class="brand" style="gap: 10px;">
-            <div class="brand__mark" style="width: 30px; height: 30px; border-radius: 8px; font-size: 0.8rem;">D</div>
-            <strong>Drukomat</strong>
+            <div class="brand__mark" style="width: 30px; height: 30px; border-radius: 8px; font-size: 0.8rem;">O</div>
+            <strong>Origama</strong>
           </div>
           <div class="muted">Konfigurator · Etykieta na wino</div>
         </div>
