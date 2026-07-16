@@ -58,8 +58,8 @@ const templates = [
 const knowledgeSectors = [
   {
     id: 'technical',
-    title: '1. Porady techniczne',
-    description: 'Przygotowanie plików i poprawne ustawienia przed produkcją.',
+    title: '1. Porady techniczne (przygotowanie plikow etc.)',
+    description: 'Przygotowanie plikow i poprawne ustawienia przed produkcja.',
     audience: 'all',
     items: [
       'Jak przygotować pliki PDF pod druk (spady, marginesy bezpieczne, osadzone fonty).',
@@ -69,8 +69,8 @@ const knowledgeSectors = [
   },
   {
     id: 'eco',
-    title: '2. Porady ekologiczne',
-    description: 'Jak planować markę i opakowanie, aby były bardziej eko od początku.',
+    title: '2. Porady ekologiczne (jak dobrze zaplanowac marke, zeby byla eko)',
+    description: 'Jak dobrze zaplanowac marke i opakowanie, zeby byly eko od poczatku.',
     audience: 'all',
     items: [
       'Jak wybierać materiały i wykończenia łatwiejsze w recyklingu.',
@@ -80,8 +80,8 @@ const knowledgeSectors = [
   },
   {
     id: 'compliance',
-    title: '3. Porady compliance',
-    description: 'Co musi znaleźć się na etykiecie i jakiej wielkości elementy są wymagane.',
+    title: '3. Porady compliance (jakie rzeczy i jakiej wielkosci sa konieczne)',
+    description: 'Co musi znalezc sie na etykiecie i jakiej wielkosci elementy sa wymagane.',
     audience: 'all',
     items: [
       'Lista obowiązkowych pól dla kategorii produktu (np. wino, kosmetyki, spożywcze).',
@@ -91,7 +91,7 @@ const knowledgeSectors = [
   },
   {
     id: 'agency-affiliate',
-    title: '4. Program afiliacyjny',
+    title: '4. Jak dziala program afiliacyjny',
     description: 'WIDOK TYLKO DLA AGENCJI: jak działa program afiliacyjny.',
     audience: 'agency',
     items: [
@@ -102,7 +102,7 @@ const knowledgeSectors = [
   },
   {
     id: 'producer-templates',
-    title: '5. Praca z szablonami',
+    title: '5. Jak korzystac z szablonow',
     description: 'WIDOK TYLKO DLA PRODUCENTÓW: jak korzystać z szablonów.',
     audience: 'producer',
     items: [
@@ -113,7 +113,7 @@ const knowledgeSectors = [
   },
   {
     id: 'producer-brand-course',
-    title: '6. Specjalny dział: kurs budowania marki',
+    title: '6. Kurs budowania marki',
     description: 'WIDOK TYLKO DLA PRODUCENTÓW: kurs budowania marki krok po kroku (cykl webinarów).',
     audience: 'producer',
     items: [
@@ -124,7 +124,7 @@ const knowledgeSectors = [
   },
   {
     id: 'agency-digital-course',
-    title: '7. Specjalny dział: kurs produktów cyfrowych',
+    title: '7. Kurs budowania produktow cyfrowych',
     description: 'WIDOK TYLKO DLA AGENCJI: kurs budowania produktów cyfrowych dla agencji krok po kroku (cykl webinarów).',
     audience: 'agency',
     items: [
@@ -1852,16 +1852,14 @@ function renderOrder() {
 }
 
 function renderKnowledge() {
-  const role = appState.accountType === 'agency' ? 'agency' : 'producer';
-  const roleLabel = role === 'agency' ? 'Agencja / studio' : 'Producent / marka';
-  const visibleSectors = knowledgeSectors.filter((sector) => sector.audience === 'all' || sector.audience === role);
+  const visibleSectors = knowledgeSectors;
 
   return `
     <section class="view ${appState.currentView === 'knowledge' ? 'is-active' : ''}" id="view-knowledge">
       <div class="section-head">
         <div class="section-title">
           <h2>Baza wiedzy</h2>
-          <p>Sektory wspólne i dedykowane dla roli: <strong>${roleLabel}</strong>.</p>
+          <p>Wszystkie sektory wiedzy w jednym miejscu. Oznaczenia rolek sa widoczne jako tagi i tinty.</p>
         </div>
       </div>
 
@@ -1869,7 +1867,13 @@ function renderKnowledge() {
         ${visibleSectors
           .map(
             (sector) => `
-              <article class="knowledge-sector knowledge-sector--${sector.audience}">
+              <article class="knowledge-sector knowledge-sector--${sector.audience} ${
+                sector.id === 'producer-brand-course'
+                  ? 'knowledge-sector--course-producer'
+                  : sector.id === 'agency-digital-course'
+                    ? 'knowledge-sector--course-agency'
+                    : ''
+              }">
                 <header class="knowledge-sector__head">
                   <div>
                     <h3>${sector.title}</h3>

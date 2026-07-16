@@ -478,14 +478,25 @@ button {
 
 .knowledge-sector--all {
   border-left-color: #aaaaaa;
+  background: #fcfcfc;
 }
 
 .knowledge-sector--agency {
   border-left-color: #8f8f8f;
+  background: #f5f5f5;
 }
 
 .knowledge-sector--producer {
   border-left-color: #767676;
+  background: #efefef;
+}
+
+.knowledge-sector--course-producer {
+  background: rgba(122, 122, 122, 0.08);
+}
+
+.knowledge-sector--course-agency {
+  background: rgba(92, 92, 92, 0.08);
 }
 
 .knowledge-sector__head {
