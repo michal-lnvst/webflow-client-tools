@@ -137,102 +137,213 @@ const knowledgeSectors = [
 
 const PRODUCT_CATALOG = [
   {
-    id: 'wine-roll-label',
-    name: 'Etykieta na wino classic',
-    type: 'Etykiety na rolce',
-    applications: ['wino'],
-    material: 'Papier FSC',
-    format: '90 x 120 mm'
+    id: 'logistics-warning-ready',
+    name: 'Naklejki logistyczne i ostrzegawcze ATTENTION',
+    department: 'Etykiety na rolce',
+    purchaseMode: 'ready',
+    printMode: 'printed',
+    customization: 'non-custom',
+    applications: ['logistyka', 'bhp'],
+    pinnedSections: ['ready-store']
   },
   {
-    id: 'sparkling-neck-label',
-    name: 'Etykieta na szyjke butelki',
-    type: 'Etykiety na rolce',
-    applications: ['wino', 'piwo'],
-    material: 'Papier metalizowany',
-    format: '30 x 100 mm'
+    id: 'warehouse-ready-label',
+    name: 'Etykieta magazynowa z polami recznymi',
+    department: 'Etykiety na rolce',
+    purchaseMode: 'ready',
+    printMode: 'printed',
+    customization: 'non-custom',
+    applications: ['magazyn', 'logistyka'],
+    pinnedSections: ['ready-store']
   },
   {
-    id: 'honey-jar-label',
-    name: 'Etykieta na sloik miodu',
-    type: 'Etykiety premium',
-    applications: ['miod', 'spozywcze'],
-    material: 'Papier monomaterialowy',
-    format: '70 x 70 mm'
+    id: 'ghs-bhp-ready',
+    name: 'Etykiety BHP i GHS gotowe',
+    department: 'Etykiety na rolce',
+    purchaseMode: 'ready',
+    printMode: 'printed',
+    customization: 'non-custom',
+    applications: ['bhp', 'chemia'],
+    pinnedSections: ['ready-store']
   },
   {
-    id: 'beer-label',
-    name: 'Etykieta kraft na piwo',
-    type: 'Etykiety premium',
-    applications: ['piwo'],
-    material: 'Papier strukturalny',
-    format: '85 x 110 mm'
+    id: 'blank-zebra-roll',
+    name: 'Etykiety bez nadruku do drukarek Zebra',
+    department: 'Etykiety na rolce',
+    purchaseMode: 'blank',
+    printMode: 'unprinted',
+    customization: 'non-custom',
+    applications: ['logistyka', 'magazyn']
   },
   {
-    id: 'cosmetic-front-back',
-    name: 'Komplet etykiet na kosmetyki',
-    type: 'Etykiety na rolce',
-    applications: ['kosmetyki'],
-    material: 'Folia rPET',
-    format: '60 x 90 mm'
+    id: 'semi-holiday-labels',
+    name: 'Etykiety okazjonalne na rolce',
+    department: 'Etykiety na rolce',
+    purchaseMode: 'semi',
+    printMode: 'printed',
+    customization: 'optional',
+    applications: ['handmade', 'spozywcze'],
+    pinnedSections: ['semi-finished']
   },
   {
-    id: 'doypack-flat-bottom',
-    name: 'Doypack flat bottom',
-    type: 'Opakowania foliowe',
-    applications: ['spozywcze', 'suplementy'],
-    material: 'Mono PE',
-    format: '130 x 225 mm'
+    id: 'semi-school-patient',
+    name: 'Etykiety Dzielny Pacjent / Do szkoly',
+    department: 'Etykiety na rolce',
+    purchaseMode: 'semi',
+    printMode: 'printed',
+    customization: 'optional',
+    applications: ['dzieci', 'edukacja'],
+    pinnedSections: ['semi-finished']
   },
   {
-    id: 'zip-pouch',
-    name: 'Woreczek strunowy z nadrukiem',
-    type: 'Opakowania foliowe',
-    applications: ['kawa i herbata', 'suplementy'],
-    material: 'Mono PP',
-    format: '160 x 240 mm'
+    id: 'sample-paper-sheet',
+    name: 'Male serie testowe na arkuszu papierowym',
+    department: 'Etykiety na rolce',
+    purchaseMode: 'custom',
+    printMode: 'printed',
+    customization: 'custom',
+    applications: ['wino', 'kosmetyki'],
+    pinnedSections: ['sample-series']
   },
   {
-    id: 'wine-box-carton',
-    name: 'Pudelko kartonowe na wino',
-    type: 'Pudelka z nadrukiem',
-    applications: ['wino'],
-    material: 'Karton GC1',
-    format: '90 x 90 x 330 mm'
+    id: 'sample-foil-sheet',
+    name: 'Male serie testowe na arkuszu foliowym',
+    department: 'Etykiety na rolce',
+    purchaseMode: 'custom',
+    printMode: 'printed',
+    customization: 'custom',
+    applications: ['kosmetyki', 'spozywcze'],
+    pinnedSections: ['sample-series']
   },
   {
-    id: 'gift-box-cosmetics',
-    name: 'Pudelko premium na zestaw kosmetyczny',
-    type: 'Pudelka z nadrukiem',
-    applications: ['kosmetyki'],
-    material: 'Karton kraft',
-    format: '220 x 160 x 80 mm'
+    id: 'plastic-pouch-custom',
+    name: 'Opakowanie plastikowe z nadrukiem',
+    department: 'Plastikowe opakowania',
+    purchaseMode: 'custom',
+    printMode: 'printed',
+    customization: 'custom',
+    applications: ['kosmetyki', 'spozywcze']
   },
   {
-    id: 'shrink-sleeve-can',
-    name: 'Sleeve termokurczliwy na puszke',
-    type: 'Sleeve i banderole',
-    applications: ['piwo', 'spozywcze'],
-    material: 'PET-G',
-    format: 'Obwod 210 mm'
+    id: 'carton-box-plain',
+    name: 'Szary karton bez nadruku',
+    department: 'Opakowania',
+    purchaseMode: 'blank',
+    printMode: 'unprinted',
+    customization: 'non-custom',
+    applications: ['e-commerce', 'logistyka']
   },
   {
-    id: 'logistics-label',
-    name: 'Etykieta logistyczna transportowa',
-    type: 'Etykiety specjalistyczne',
-    applications: ['chemia', 'spozywcze'],
-    material: 'Folia PP',
-    format: '100 x 150 mm'
+    id: 'courier-envelope-ready',
+    name: 'Koperta kurierska z gotowym nadrukiem',
+    department: 'Koperty kurierskie',
+    purchaseMode: 'ready',
+    printMode: 'printed',
+    customization: 'non-custom',
+    applications: ['logistyka', 'e-commerce']
   },
   {
-    id: 'chemical-resistant-label',
-    name: 'Etykieta odporna na chemie',
-    type: 'Etykiety specjalistyczne',
-    applications: ['chemia'],
-    material: 'Folia PE',
-    format: '80 x 120 mm'
+    id: 'plain-envelope',
+    name: 'Koperta zwykla bez nadruku',
+    department: 'Koperty zwykle',
+    purchaseMode: 'blank',
+    printMode: 'unprinted',
+    customization: 'non-custom',
+    applications: ['biuro', 'wysylka']
+  },
+  {
+    id: 'void-filler-ready',
+    name: 'Wypelniacz papierowy gotowy',
+    department: 'Wypelniacze',
+    purchaseMode: 'ready',
+    printMode: 'unprinted',
+    customization: 'non-custom',
+    applications: ['e-commerce', 'logistyka'],
+    pinnedSections: ['ready-store']
+  },
+  {
+    id: 'packing-tape-custom',
+    name: 'Tasma pakowa z nadrukiem',
+    department: 'Tasmy',
+    purchaseMode: 'custom',
+    printMode: 'printed',
+    customization: 'custom',
+    applications: ['logistyka', 'e-commerce']
+  },
+  {
+    id: 'shop-bag-custom',
+    name: 'Torba firmowa z nadrukiem',
+    department: 'Torby',
+    purchaseMode: 'custom',
+    printMode: 'printed',
+    customization: 'custom',
+    applications: ['retail', 'kosmetyki']
+  },
+  {
+    id: 'hang-tag-custom',
+    name: 'Metka produktowa z personalizacja',
+    department: 'Metki',
+    purchaseMode: 'custom',
+    printMode: 'printed',
+    customization: 'custom',
+    applications: ['fashion', 'handmade']
   }
 ];
+
+const PRODUCT_DEPARTMENTS = [
+  'Etykiety na rolce',
+  'Plastikowe opakowania',
+  'Opakowania',
+  'Koperty kurierskie',
+  'Koperty zwykle',
+  'Wypelniacze',
+  'Tasmy',
+  'Torby',
+  'Metki'
+];
+
+const PRODUCT_PRIMARY_FILTERS = [
+  ['all', 'Wszystkie'],
+  ['unprinted', 'Bez nadruku'],
+  ['fixed-print', 'Nadruk staly'],
+  ['personalized-print', 'Nadruk personalizowany']
+];
+
+const PRODUCT_PRINT_MODES = [
+  ['all', 'Dowolny zadruk'],
+  ['printed', 'Z nadrukiem'],
+  ['unprinted', 'Bez nadruku']
+];
+
+const PRODUCT_PINNED_SECTIONS = [
+  {
+    id: 'sample-series',
+    title: 'Male serie na probe - etykiety na arkuszu',
+    description: 'Sekcja stale widoczna. Szybkie testy koloru i formatu na papierze lub folii.'
+  },
+  {
+    id: 'ready-store',
+    title: 'Gotowe produkty',
+    description: 'Zwykly sklep bez projektowania: szybki zakup gotowych produktow i etykiet.'
+  },
+  {
+    id: 'semi-finished',
+    title: 'Etykiety polgotowe',
+    description: 'Gotowe wzory dostepne od razu, z opcja personalizacji w kreatorze.'
+  }
+];
+
+const PRODUCT_TAG_TO_INDUSTRY = {
+  wino: 'Wino i alkohole',
+  kosmetyki: 'Kosmetyki i beauty',
+  spozywcze: 'Spozywcze',
+  handmade: 'Rekodzielo',
+  fashion: 'Fashion',
+  retail: 'Retail',
+  chemia: 'Chemia i BHP',
+  bhp: 'Chemia i BHP',
+  dzieci: 'Edukacja i dzieci'
+};
 
 const CONFIG_MATERIALS = [
   {
@@ -373,7 +484,10 @@ const appState = {
   fileUploaded: false,
   designSource: 'file',
   productsSearch: '',
-  productsSection: 'all',
+  productsPrimaryFilter: 'all',
+  productsDepartment: 'all',
+  productsPrintMode: 'all',
+  productsIndustry: 'all',
   orderPlaced: false,
   reminderOn: true,
   environmentalDecision: 'Rekomendowany wariant eko',
@@ -409,7 +523,6 @@ const views = [
   ['overview', 'Przegląd'],
   ['products', 'Produkty'],
   ['configurator', 'Konfigurator'],
-  ['order', 'Wycena i zamówienie'],
   ['knowledge', 'Baza wiedzy']
 ];
 
@@ -668,71 +781,203 @@ function renderProductIcon(product) {
 
 function renderProducts() {
   const search = appState.productsSearch.trim().toLowerCase();
-  const filteredProducts = PRODUCT_CATALOG.filter((product) => {
-    const haystack = `${product.name} ${product.applications.join(' ')}`.toLowerCase();
-    return search.length === 0 || haystack.includes(search);
+  const activePrimaryFilter = PRODUCT_PRIMARY_FILTERS.some(([id]) => id === appState.productsPrimaryFilter)
+    ? appState.productsPrimaryFilter
+    : 'all';
+  const activeDepartment = ['all', ...PRODUCT_DEPARTMENTS].includes(appState.productsDepartment)
+    ? appState.productsDepartment
+    : 'all';
+  const activePrintMode = PRODUCT_PRINT_MODES.some(([id]) => id === appState.productsPrintMode)
+    ? appState.productsPrintMode
+    : 'all';
+
+  const getProductIndustries = (product) => {
+    const industries = product.applications.map((tag) => PRODUCT_TAG_TO_INDUSTRY[tag]).filter(Boolean);
+    return [...new Set(industries)];
+  };
+
+  const matchesPrimaryFilter = (product, filterId) => {
+    if (filterId === 'all') {
+      return true;
+    }
+    if (filterId === 'unprinted') {
+      return product.printMode === 'unprinted';
+    }
+    if (filterId === 'fixed-print') {
+      return product.printMode === 'printed' && product.customization === 'non-custom';
+    }
+    if (filterId === 'personalized-print') {
+      return product.printMode === 'printed' && product.customization !== 'non-custom';
+    }
+    return true;
+  };
+
+  const baseFilteredProducts = PRODUCT_CATALOG.filter((product) => {
+    const searchScope = `${product.name} ${product.department} ${product.purchaseMode} ${product.printMode} ${product.customization} ${
+      product.applications.join(' ')
+    }`.toLowerCase();
+
+    const searchOk = search.length === 0 || searchScope.includes(search);
+    const primaryFilterOk = matchesPrimaryFilter(product, activePrimaryFilter);
+    const departmentOk = activeDepartment === 'all' || product.department === activeDepartment;
+    const printOk = activePrintMode === 'all' || product.printMode === activePrintMode;
+
+    return searchOk && primaryFilterOk && departmentOk && printOk;
   });
 
-  const sections = [...new Set(PRODUCT_CATALOG.flatMap((product) => product.applications))];
+  const industries = [...new Set(baseFilteredProducts.flatMap((product) => getProductIndustries(product)))].sort();
+  const activeIndustry = ['all', ...industries].includes(appState.productsIndustry) ? appState.productsIndustry : 'all';
 
-  const activeSection = sections.includes(appState.productsSection) ? appState.productsSection : 'all';
-  const visibleProducts = filteredProducts.filter((product) =>
-    activeSection === 'all' ? true : product.applications.includes(activeSection)
-  );
+  const filteredProducts = baseFilteredProducts.filter((product) => {
+    const industryOk = activeIndustry === 'all' || getProductIndustries(product).includes(activeIndustry);
+    return industryOk;
+  });
+
+  const modeLabel = {
+    ready: 'Gotowe',
+    blank: 'Bez nadruku',
+    semi: 'Polgotowe',
+    custom: 'Custom'
+  };
+  const printLabel = Object.fromEntries(PRODUCT_PRINT_MODES);
+  const customLabel = {
+    custom: 'Custom',
+    'non-custom': 'Non-custom',
+    optional: 'Custom opcjonalny'
+  };
+
+  const getCtaLabel = (product) => {
+    if (product.purchaseMode === 'semi') {
+      return 'Personalizuj';
+    }
+
+    return product.customization === 'non-custom' ? 'Dodaj do koszyka' : 'Przejdz do kreatora';
+  };
+
+  const renderProductCard = (product) => `
+    <div class="product-card">
+      <div class="product-card__head">
+        <span class="product-icon">${renderProductIcon(product)}</span>
+        <strong>${product.name}</strong>
+      </div>
+
+      <div class="product-card__meta" style="margin-top: 10px;">
+        <span class="product-mini-tag product-mini-tag--strong">${modeLabel[product.purchaseMode]}</span>
+        <span class="product-mini-tag">${printLabel[product.printMode]}</span>
+        <span class="product-mini-tag">${customLabel[product.customization]}</span>
+        <span class="product-mini-tag">${product.department}</span>
+      </div>
+
+      <div class="product-card__actions" style="margin-top: 12px;">
+        <button class="button button--ghost">${getCtaLabel(product)}</button>
+      </div>
+    </div>
+  `;
+
+  const pinnedSections = PRODUCT_PINNED_SECTIONS.map((section) => ({
+    ...section,
+    products: filteredProducts.filter((product) => (product.pinnedSections ?? []).includes(section.id))
+  })).filter((section) => section.products.length > 0);
+
+  const pinnedProductIds = new Set(pinnedSections.flatMap((section) => section.products.map((product) => product.id)));
+  const mainCatalogProducts = filteredProducts.filter((product) => !pinnedProductIds.has(product.id));
 
   return `
     <section class="view ${appState.currentView === 'products' ? 'is-active' : ''}" id="view-products">
       <div class="section-head">
         <div class="section-title">
           <h2>Produkty</h2>
-          <p>Listing etykiet i opakowan z dynamiczna wyszukiwarka i filtrowaniem po tagach zastosowan.</p>
+          <p>Katalog decyzyjny: tryb zakupu, dzial glowny, zadruk i zastosowania.</p>
         </div>
       </div>
 
       <div class="products-toolbar card">
-        <label class="field-block" style="margin-top: 12px;">
+        <label class="field-block" style="margin-top: 10px;">
           <span>Wyszukiwarka produktow</span>
-          <input class="field" name="productsSearch" value="${appState.productsSearch}" placeholder="Szukaj: wino, doypack, kosmetyki, sleeve..." />
+          <input class="field" name="productsSearch" value="${appState.productsSearch}" placeholder="Szukaj: gotowe etykiety, karton bez nadruku, bhp..." />
         </label>
 
-        <div class="products-section-tabs" style="margin-top: 12px;">
-          <button class="button button--ghost ${activeSection === 'all' ? 'is-active' : ''}" data-products-section="all">Wszystkie</button>
-          ${sections
-            .map((section) => {
-              const count = filteredProducts.filter((product) => product.applications.includes(section)).length;
-
-              return `<button class="button button--ghost ${activeSection === section ? 'is-active' : ''}" data-products-section="${section}">${section} (${count})</button>`;
-            })
+        <div class="products-section-tabs products-filter-tags" style="margin-top: 10px;">
+          ${PRODUCT_PRIMARY_FILTERS.map(([filterId, label]) => {
+            const count = PRODUCT_CATALOG.filter((product) => matchesPrimaryFilter(product, filterId)).length;
+            return `<button class="button button--ghost ${activePrimaryFilter === filterId ? 'is-active' : ''}" data-products-primary-filter="${filterId}">${label} (${count})</button>`;
+          })
             .join('')}
+        </div>
+
+        <div class="products-filters-grid" style="margin-top: 10px;">
+          <label class="field-block">
+            <span>Dzial glowny</span>
+            <select class="select" name="productsDepartment">
+              <option value="all" ${activeDepartment === 'all' ? 'selected' : ''}>Wszystkie dzialy</option>
+              ${PRODUCT_DEPARTMENTS.map(
+                (department) =>
+                  `<option value="${department}" ${activeDepartment === department ? 'selected' : ''}>${department}</option>`
+              ).join('')}
+            </select>
+          </label>
+
+          <div class="field-block">
+            <span>Zadruk</span>
+            <div class="products-section-tabs products-filter-tags">
+              ${PRODUCT_PRINT_MODES.map(
+                ([mode, label]) =>
+                  `<button class="button button--ghost ${activePrintMode === mode ? 'is-active' : ''}" data-products-print="${mode}">${label}</button>`
+              ).join('')}
+            </div>
+          </div>
+        </div>
+
+        <div class="products-tag-groups" style="margin-top: 4px;">
+          <div class="products-filter-group">
+            <span class="products-filter-group__label">Tagi branz</span>
+            <div class="products-section-tabs products-filter-tags">
+              <button class="button button--ghost ${activeIndustry === 'all' ? 'is-active' : ''}" data-products-industry="all">Wszystkie branze</button>
+              ${industries
+                .map((industry) => {
+                  const count = baseFilteredProducts.filter((product) => getProductIndustries(product).includes(industry)).length;
+                  return `<button class="button button--ghost ${activeIndustry === industry ? 'is-active' : ''}" data-products-industry="${industry}">${industry} (${count})</button>`;
+                })
+                .join('')}
+            </div>
+          </div>
         </div>
       </div>
 
       <div style="margin-top: 16px;" class="products-sections">
-        <article class="card product-section">
-          <div class="products-card-grid">
-            ${visibleProducts
-              .map(
-                (product) => `
-                  <div class="product-card">
-                    <div class="product-card__head">
-                      <span class="product-icon">${renderProductIcon(product)}</span>
-                      <strong>${product.name}</strong>
-                    </div>
-                    <div class="product-tag-row" style="margin-top: 8px;">
-                      ${product.applications.map((tag) => `<span class="product-mini-tag">${tag}</span>`).join('')}
-                    </div>
-                  </div>
-                `
-              )
-              .join('')}
-          </div>
-        </article>
+        ${pinnedSections
+          .map(
+            (section) => `
+              <article class="card product-section">
+                <h3>${section.title}</h3>
+                <p class="muted">${section.description}</p>
+                <div class="products-card-grid" style="margin-top: 12px;">
+                  ${section.products.map((product) => renderProductCard(product)).join('')}
+                </div>
+              </article>
+            `
+          )
+          .join('')}
 
         ${
-          visibleProducts.length === 0
+          mainCatalogProducts.length > 0
+            ? `
+              <article class="card product-section">
+                <h3>Pozostaly katalog</h3>
+                <p class="muted">Produkty spoza sekcji pinowanych, nadal zgodne z aktywnymi filtrami.</p>
+                <div class="products-card-grid" style="margin-top: 12px;">
+                  ${mainCatalogProducts.map((product) => renderProductCard(product)).join('')}
+                </div>
+              </article>
+            `
+            : ''
+        }
+
+        ${
+          filteredProducts.length === 0
             ? `
               <div class="warning">
-                Brak produktow dla wyszukiwanej frazy. Sprobuj innej nazwy albo zastosowania.
+                Brak produktow dla wybranych filtrow. Zmien tryb zakupu, dzial lub zadruk.
               </div>
             `
             : ''
@@ -996,24 +1241,6 @@ function renderConfigurator() {
   return `
     <section class="view ${appState.currentView === 'configurator' ? 'is-active' : ''}" id="view-configurator">
       <div class="config-shell">
-        <div class="config-header">
-          <div class="brand" style="gap: 10px;">
-            <div class="brand__mark" style="width: 30px; height: 30px; border-radius: 8px; font-size: 0.8rem;">O</div>
-            <strong>Origama</strong>
-          </div>
-          <div class="muted">Konfigurator · Etykieta na wino</div>
-        </div>
-
-        ${
-          roleIsAgency
-            ? `
-              <div class="config-agency-info">
-                Tryb agencji: pola oznaczone jako zablokowane sa ustalone w szablonie i producent nie moze ich zmienic.
-              </div>
-            `
-            : ''
-        }
-
         <div class="config-body">
           <div class="config-flow-bar">
             <button
@@ -1673,27 +1900,17 @@ function render() {
     <div class="shell">
       <header class="topbar">
         <div class="brand">
-          <div class="brand__mark">P</div>
+          <div class="brand__mark">A</div>
           <div class="brand__text">
-            <strong>Origama</strong>
-            <span>MVP platformy etykiet i opakowań</span>
+            <strong>Architektura treści</strong>
+            <span>Dla aplikacji</span>
           </div>
-        </div>
-        <div class="topbar__actions">
-          <button class="button button--ghost" data-goto="configurator">Konfigurator</button>
-          <button class="button button--dark" data-goto="order">Pokaż wycenę</button>
         </div>
       </header>
 
       <nav class="main-nav-horizontal">
         ${renderNav()}
       </nav>
-
-      <div class="main-status-row">
-        <span class="chip">${appState.accountType === 'agency' ? 'Agencja / studio' : 'Producent / marka'}</span>
-        <span class="chip">Template: ${getTemplate().name}</span>
-        <span class="chip">Nakład: ${appState.quantity} szt.</span>
-      </div>
 
       <main class="content">
         ${renderOverview()}
@@ -1776,9 +1993,23 @@ function bindEvents() {
     });
   });
 
-  document.querySelectorAll('[data-products-section]').forEach((button) => {
+  document.querySelectorAll('[data-products-primary-filter]').forEach((button) => {
     button.addEventListener('click', () => {
-      appState.productsSection = button.dataset.productsSection;
+      appState.productsPrimaryFilter = button.dataset.productsPrimaryFilter;
+      render();
+    });
+  });
+
+  document.querySelectorAll('[data-products-print]').forEach((button) => {
+    button.addEventListener('click', () => {
+      appState.productsPrintMode = button.dataset.productsPrint;
+      render();
+    });
+  });
+
+  document.querySelectorAll('[data-products-industry]').forEach((button) => {
+    button.addEventListener('click', () => {
+      appState.productsIndustry = button.dataset.productsIndustry;
       render();
     });
   });
