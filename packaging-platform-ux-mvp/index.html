@@ -11,132 +11,143 @@
       <div class="container nav-row">
         <a class="logo" href="./index.html">XYZ</a>
 
-        <nav class="main-nav" aria-label="Nawigacja glowna">
-          <div class="nav-item nav-item--dropdown">
-            <button class="nav-link" type="button" aria-expanded="false">Produkty</button>
-            <div class="dropdown" role="menu">
-              <a href="./products.html" role="menuitem">etykiety samoprzylepne</a>
-              <a href="./products.html" role="menuitem">etykiety na rolce</a>
-              <a href="./products.html" role="menuitem">etykiety produktowe</a>
-              <a href="./products.html" role="menuitem">etykiety na opakowania</a>
-              <a href="./products.html" role="menuitem">etykiety logistyczne i informacyjne</a>
-              <a href="./products.html" role="menuitem">produkty bez zadruku</a>
-              <a href="./products.html" role="menuitem">docelowo: pudelka i inne opakowania</a>
-            </div>
-          </div>
-          <a class="nav-link" href="#how">Jak to dziala</a>
-          <a class="nav-link" href="#producers">Dla producentow / Rozwin swoja marke z XYZ!</a>
-          <a class="nav-link" href="#agencies">Dla agencji i projektantow</a>
+        <nav class="main-nav" aria-label="Nawigacja główna">
+          <a class="nav-link is-current" href="./index.html">Strona główna</a>
+          <a class="nav-link" href="./products.html">Produkty</a>
+          <a class="nav-link" href="#how">Jak to działa</a>
+          <a class="nav-link" href="#producers">Dla producentów</a>
+          <a class="nav-link" href="#agencies">Dla agencji i projektantów</a>
           <a class="nav-link" href="#knowledge">Baza wiedzy</a>
         </nav>
 
         <div class="nav-actions">
-          <button class="btn btn-ghost" type="button">Zaloguj sie</button>
-          <a class="btn btn-primary" href="#wizard">Skonfiguruj produkt</a>
+          <button class="btn btn-ghost" type="button">Zaloguj się</button>
+          <a class="btn btn-primary" href="./products.html#wizard">Skonfiguruj produkt</a>
         </div>
       </div>
     </header>
 
     <main class="container stack-xl">
       <section class="panel hero">
-        <p class="eyebrow">Hero: glowna obietnica</p>
-        <h1>Od pomyslu do gotowej etykiety. Krok po kroku.</h1>
+        <h1>Od pomysłu do gotowej etykiety. Krok po kroku.</h1>
         <p>
-          Wybierz produkt, skonfiguruj parametry, przygotuj projekt lub dodaj wlasny plik i zamow druk online.
+          Wybierz produkt, skonfiguruj parametry, przygotuj projekt lub dodaj własny plik i zamów druk online.
         </p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#wizard">Skonfiguruj etykiete</a>
-          <a class="btn btn-ghost" href="#own-project">Mam juz wlasny projekt</a>
+        <div class="hero-choice-grid">
+          <article class="hero-choice-card" id="producers">
+            <p class="eyebrow">Konfiguracja</p>
+            <h3>Chcę skonfigurować etykietę</h3>
+            <figure class="wizard-preview" aria-label="Podgląd ekranu konfiguratora">
+              <div class="wizard-preview__top">
+                <span>Krok 1/4</span>
+                <span>Konfigurator</span>
+              </div>
+              <div class="wizard-preview__line"></div>
+              <div class="wizard-preview__line wizard-preview__line--short"></div>
+              <div class="wizard-preview__chips">
+                <span>Format</span>
+                <span>Materiał</span>
+                <span>Nakład</span>
+              </div>
+            </figure>
+            <p>
+              Skorzystaj z gotowego szablonu, dodaj treści i wybierz parametry druku. XYZ podpowie, na co zwrócić
+              uwagę przed produkcją.
+            </p>
+            <a class="btn btn-primary" href="./products.html#wizard">Skonfiguruj etykietę</a>
+          </article>
+
+          <article class="hero-choice-card">
+            <p class="eyebrow">Edycja</p>
+            <h3>Mam już własny projekt</h3>
+            <figure class="wizard-preview" aria-label="Podgląd ekranu edycji projektu">
+              <div class="wizard-preview__top">
+                <span>Projekt</span>
+                <span>Status: OK</span>
+              </div>
+              <div class="wizard-preview__line"></div>
+              <div class="wizard-preview__line"></div>
+              <div class="wizard-preview__line wizard-preview__line--short"></div>
+              <div class="wizard-preview__chips">
+                <span>Podmień plik</span>
+                <span>Warianty</span>
+              </div>
+            </figure>
+            <p>
+              Dodaj plik, skonfiguruj produkcję, sprawdź zgodność projektu i zarządzaj wariantami oraz zamówieniami
+              klienta.
+            </p>
+            <a class="btn btn-ghost" href="./products.html">Mam już własny projekt</a>
+          </article>
         </div>
         <ul class="bullet-row">
           <li>wycena online</li>
-          <li>kontrola plikow przed drukiem</li>
-          <li>materialy i wykonczenia dopasowane do zastosowania</li>
-          <li>mozliwosc ponowienia zamowienia</li>
+          <li>kontrola plików przed drukiem</li>
+          <li>materiały i wykończenia dopasowane do zastosowania</li>
+          <li>możliwość ponowienia zamówienia</li>
         </ul>
       </section>
 
       <section class="panel" id="quick-start">
         <div class="section-head">
-          <h2>Szybki start od produktu</h2>
-          <p>Co chcesz przygotowac?</p>
+          <h2>Co chcesz przygotować?</h2>
         </div>
 
         <label class="field-block">
           <span>Wyszukiwarka</span>
-          <input class="field" placeholder="np. etykieta na sloik, etykieta logistyczna, bez zadruku" />
+          <input class="field" placeholder="np. etykieta na słoik, etykieta logistyczna, bez zadruku" />
         </label>
 
-        <div class="tabs" role="tablist" aria-label="Widok listy">
-          <button class="tab is-active" type="button" data-variant="application">Wariant A: wedlug zastosowania</button>
-          <button class="tab" type="button" data-variant="product">Wariant B: wedlug produktu</button>
+        <div class="quick-start-browse">
+          <p class="quick-start-browse__heading">Najczęściej wybierane</p>
+          <div class="tabs" role="tablist" aria-label="Widok listy">
+            <button class="tab is-active" type="button" data-variant="application">Wariant A: według zastosowania</button>
+            <button class="tab" type="button" data-variant="product">Wariant B: według produktu</button>
+          </div>
+
+          <div class="variant-grid" data-variant-panel="application">
+            <article class="tile">etykiety spożywcze</article>
+            <article class="tile">etykiety kosmetyczne</article>
+            <article class="tile">etykiety na napoje i alkohol</article>
+            <article class="tile">etykiety chemiczne</article>
+            <article class="tile">etykiety logistyczne</article>
+            <article class="tile">etykiety papiernicze</article>
+            <article class="tile">etykiety bez zadruku</article>
+          </div>
+
+          <div class="variant-grid is-hidden" data-variant-panel="product">
+            <article class="tile">etykiety na rolce</article>
+            <article class="tile">arkusze</article>
+            <article class="tile">naklejki wycinane</article>
+            <article class="tile">etykiety termiczne</article>
+            <article class="tile">plomby</article>
+            <article class="tile">etykiety peel-off</article>
+          </div>
         </div>
-
-        <div class="variant-grid" data-variant-panel="application">
-          <article class="tile">etykiety spozywcze</article>
-          <article class="tile">etykiety kosmetyczne</article>
-          <article class="tile">etykiety na napoje i alkohol</article>
-          <article class="tile">etykiety chemiczne</article>
-          <article class="tile">etykiety logistyczne</article>
-          <article class="tile">etykiety papiernicze</article>
-          <article class="tile">etykiety bez zadruku</article>
-        </div>
-
-        <div class="variant-grid is-hidden" data-variant-panel="product">
-          <article class="tile">etykiety na rolce</article>
-          <article class="tile">arkusze</article>
-          <article class="tile">naklejki wycinane</article>
-          <article class="tile">etykiety termiczne</article>
-          <article class="tile">plomby</article>
-          <article class="tile">etykiety peel-off</article>
-        </div>
-      </section>
-
-      <section class="split-2" id="wizard">
-        <article class="panel" id="producers">
-          <p class="eyebrow">Chce skonfigurowac etykiete / opakowanie</p>
-          <h2>Przygotowuje etykiete dla swojego produktu</h2>
-          <p>
-            Skorzystaj z gotowego szablonu, dodaj tresci i wybierz parametry druku. XXX podpowie, na co zwrocic
-            uwage przed produkcja.
-          </p>
-          <a class="btn btn-primary" href="./products.html#wizard">Konfiguruj etykiete od zera</a>
-        </article>
-
-        <article class="panel" id="own-project">
-          <p class="eyebrow">Mam wlasny projekt</p>
-          <h2>Dla agencji i zespolow projektowych</h2>
-          <p>
-            Dodaj plik, skonfiguruj produkcje, sprawdz zgodnosc projektu i zarzadzaj wariantami oraz zamowieniami
-            klienta.
-          </p>
-          <a class="btn btn-ghost" href="./products.html">Dodaj wlasny projekt</a>
-        </article>
       </section>
 
       <section class="panel" id="how">
         <div class="section-head">
-          <h2>Jak dziala XXX</h2>
-          <p>Budujesz marke. Zarzadzasz. Skalujesz.</p>
+          <h2>Jak działa XYZ</h2>
+          <p>Budujesz markę. Zarządzasz. Skalujesz.</p>
         </div>
         <div class="steps-grid">
-          <article class="step">1. Wybierz produkt</article>
-          <article class="step">2. Ustal parametry i zmienne</article>
-          <article class="step">3. Dodaj tresci lub plik</article>
-          <article class="step">4. Sprawdz i zamow</article>
+          <article class="step">Parametr</article>
+          <article class="step">Parametr</article>
+          <article class="step">Parametr</article>
         </div>
       </section>
 
       <section class="split-2">
         <article class="panel panel-info">
           <div class="section-head">
-            <h2>Sprawdzone przed wyslaniem do druku</h2>
-            <p>Sekcja o kontroli i bezpieczenstwie produkcji</p>
+            <h2>Sprawdzone przed wysłaniem do druku</h2>
+            <p>Sekcja o kontroli i bezpieczeństwie produkcji</p>
           </div>
           <div class="value-grid">
-            <article class="value-tile">Kontrola spadow i marginesow</article>
-            <article class="value-tile">Weryfikacja czytelnosci tresci</article>
-            <article class="value-tile">Walidacja zgodnosci pliku</article>
+            <article class="value-tile">Parametr</article>
+            <article class="value-tile">Parametr</article>
+            <article class="value-tile">Parametr</article>
           </div>
         </article>
 
@@ -146,9 +157,9 @@
             <p>Sustainability</p>
           </div>
           <div class="value-grid">
-            <article class="value-tile">Materialy przyjazne recyklingowi</article>
-            <article class="value-tile">Mniej odpadu produkcyjnego</article>
-            <article class="value-tile">Lepsze decyzje projektowe od startu</article>
+            <article class="value-tile">Parametr</article>
+            <article class="value-tile">Parametr</article>
+            <article class="value-tile">Parametr</article>
           </div>
         </article>
       </section>
@@ -156,59 +167,94 @@
       <section class="panel" id="knowledge">
         <div class="section-head">
           <h2>FAQ</h2>
-          <p>Wstepne pytania i odpowiedzi</p>
+          <p>Wstępne pytania i odpowiedzi</p>
         </div>
         <div class="faq-list">
           <details>
-            <summary>Czy musze miec gotowy projekt?</summary>
-            <p>Nie, mozesz wyjsc od szablonu i przejsc krok po kroku.</p>
+            <summary>Czy muszę mieć gotowy projekt?</summary>
+            <p>Nie, możesz wyjść od szablonu i przejść krok po kroku.</p>
           </details>
           <details>
-            <summary>Jak sprawdzic, jaki material wybrac?</summary>
-            <p>W kreatorze pojawia sie rekomendacje zalezne od zastosowania.</p>
+            <summary>Jak sprawdzić, jaki materiał wybrać?</summary>
+            <p>W kreatorze pojawiają się rekomendacje zależne od zastosowania.</p>
           </details>
           <details>
-            <summary>Czy moge zamowic kilka wariantow etykiety?</summary>
-            <p>Tak, warianty mozna zapisywac i porownywac przed zamowieniem.</p>
+            <summary>Czy mogę zamówić kilka wariantów etykiety?</summary>
+            <p>Tak, warianty można zapisywać i porównywać przed zamówieniem.</p>
           </details>
           <details>
-            <summary>Czy XXX sprawdza plik przed drukiem?</summary>
-            <p>Tak, draft zaklada automatyczna kontrole zgodnosci pliku.</p>
+            <summary>Czy XYZ sprawdza plik przed drukiem?</summary>
+            <p>Tak, draft zakłada automatyczną kontrolę zgodności pliku.</p>
           </details>
           <details>
-            <summary>Czy moge otrzymac probke?</summary>
-            <p>Tak, mala seria testowa bedzie dostepna jako osobna sciezka.</p>
+            <summary>Czy mogę otrzymać próbkę?</summary>
+            <p>Tak, mała seria testowa będzie dostępna jako osobna ścieżka.</p>
           </details>
           <details>
-            <summary>Jaki jest minimalny naklad?</summary>
-            <p>Zalezy od produktu, mozna zaczac od malych serii.</p>
+            <summary>Jaki jest minimalny nakład?</summary>
+            <p>Zależy od produktu, można zacząć od małych serii.</p>
           </details>
           <details>
-            <summary>Jak ponowic wczesniejsze zamowienie?</summary>
-            <p>Z poziomu historii zamowien lub zapisanych wariantow.</p>
+            <summary>Jak ponowić wcześniejsze zamówienie?</summary>
+            <p>Z poziomu historii zamówień lub zapisanych wariantów.</p>
           </details>
           <details>
-            <summary>Co zrobic, jesli nie znajduje potrzebnego produktu?</summary>
+            <summary>Co zrobić, jeśli nie znajduję potrzebnego produktu?</summary>
             <p>Skorzystaj z opcji zapytania o produkt niestandardowy.</p>
           </details>
           <details>
-            <summary>Czy moge korzystac z XX jako agencja?</summary>
-            <p>Tak, przewidziane sa osobne funkcje dla agencji i projektantow.</p>
+            <summary>Czy mogę korzystać z XYZ jako agencja?</summary>
+            <p>Tak, przewidziane są osobne funkcje dla agencji i projektantów.</p>
           </details>
           <details>
-            <summary>Czy szablony uwzgledniaja obowiazkowe informacje?</summary>
-            <p>Tak, to jeden z kluczowych elementow draftu.</p>
+            <summary>Czy szablony uwzględniają obowiązkowe informacje?</summary>
+            <p>Tak, to jeden z kluczowych elementów draftu.</p>
           </details>
         </div>
       </section>
 
       <section class="panel cta-final" id="agencies">
-        <h2>Zacznij od produktu. XX przeprowadzi Cie przez reszte.</h2>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#wizard">Skonfiguruj etykiete</a>
-          <a class="btn btn-ghost" href="#own-project">Mam wlasny projekt</a>
-          <a class="text-link" href="./products.html">Zapytaj o produkt niestandardowy</a>
+        <h2>Zacznij od produktu. XYZ przeprowadzi Cię przez resztę.</h2>
+        <div class="hero-choice-grid cta-choice-grid">
+          <article class="hero-choice-card">
+            <p class="eyebrow">Konfiguracja</p>
+            <h3>Skonfiguruj etykietę</h3>
+            <figure class="wizard-preview" aria-label="Podgląd ekranu konfiguratora produktu">
+              <div class="wizard-preview__top">
+                <span>Krok 1/4</span>
+                <span>Konfigurator</span>
+              </div>
+              <div class="wizard-preview__line"></div>
+              <div class="wizard-preview__line wizard-preview__line--short"></div>
+              <div class="wizard-preview__chips">
+                <span>Format</span>
+                <span>Materiał</span>
+                <span>Nakład</span>
+              </div>
+            </figure>
+            <a class="btn btn-primary" href="./products.html#wizard">Skonfiguruj etykietę</a>
+          </article>
+
+          <article class="hero-choice-card">
+            <p class="eyebrow">Edycja</p>
+            <h3>Mam własny projekt</h3>
+            <figure class="wizard-preview" aria-label="Podgląd ekranu edycji projektu klienta">
+              <div class="wizard-preview__top">
+                <span>Projekt</span>
+                <span>Status: OK</span>
+              </div>
+              <div class="wizard-preview__line"></div>
+              <div class="wizard-preview__line"></div>
+              <div class="wizard-preview__line wizard-preview__line--short"></div>
+              <div class="wizard-preview__chips">
+                <span>Podmień plik</span>
+                <span>Warianty</span>
+              </div>
+            </figure>
+            <a class="btn btn-ghost" href="./products.html">Mam własny projekt</a>
+          </article>
         </div>
+        <p class="cta-final__tertiary"><a class="text-link" href="./products.html">Zapytaj o produkt niestandardowy</a></p>
       </section>
     </main>
 
