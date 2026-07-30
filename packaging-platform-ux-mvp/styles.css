@@ -87,6 +87,17 @@ body {
   background: #fff;
 }
 
+.main-nav .nav-link:not([href="./index.html"]):not([href="./products.html"]) {
+  color: #bdbdbd;
+  pointer-events: none;
+  cursor: default;
+}
+
+.main-nav .nav-link:not([href="./index.html"]):not([href="./products.html"]):hover {
+  border-color: transparent;
+  background: transparent;
+}
+
 .nav-actions {
   display: flex;
   gap: 8px;
