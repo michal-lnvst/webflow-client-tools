@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UX Draft - Products</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav-row">
+        <a class="logo" href="./index.html">XYZ</a>
+
+        <nav class="main-nav" aria-label="Nawigacja glowna">
+          <div class="nav-item nav-item--dropdown">
+            <button class="nav-link" type="button" aria-expanded="false">Produkty</button>
+            <div class="dropdown" role="menu">
+              <a href="./products.html" role="menuitem">etykiety samoprzylepne</a>
+              <a href="./products.html" role="menuitem">etykiety na rolce</a>
+              <a href="./products.html" role="menuitem">etykiety produktowe</a>
+              <a href="./products.html" role="menuitem">etykiety na opakowania</a>
+              <a href="./products.html" role="menuitem">etykiety logistyczne i informacyjne</a>
+              <a href="./products.html" role="menuitem">produkty bez zadruku</a>
+              <a href="./products.html" role="menuitem">docelowo: pudelka i inne opakowania</a>
+            </div>
+          </div>
+          <a class="nav-link" href="./index.html#how">Jak to dziala</a>
+          <a class="nav-link" href="./index.html#producers">Dla producentow / Rozwin swoja marke z XYZ!</a>
+          <a class="nav-link" href="./index.html#agencies">Dla agencji i projektantow</a>
+          <a class="nav-link" href="./index.html#knowledge">Baza wiedzy</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="btn btn-ghost" type="button">Zaloguj sie</button>
+          <a class="btn btn-primary" href="#wizard">Skonfiguruj produkt</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container stack-xl">
+      <section class="panel hero">
+        <p class="eyebrow">Products page</p>
+        <h1>Katalog produktow i szybki start konfiguracji</h1>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <h2>Filtry produktow</h2>
+        </div>
+
+        <div class="filters-grid">
+          <label class="field-block">
+            <span>Wyszukiwarka</span>
+            <input class="field" placeholder="np. etykiety logistyczne, bez zadruku, rolka" />
+          </label>
+
+          <label class="field-block">
+            <span>Glowna kategoria</span>
+            <select class="field">
+              <option>etykiety samoprzylepne</option>
+              <option>etykiety na rolce</option>
+              <option>etykiety produktowe</option>
+              <option>etykiety na opakowania</option>
+              <option>etykiety logistyczne i informacyjne</option>
+              <option>produkty bez zadruku</option>
+              <option>docelowo: pudelka i inne opakowania</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="chip-row">
+          <button class="chip is-active" type="button">wszystkie</button>
+          <button class="chip" type="button">druk na zamowienie (glowny scope)</button>
+          <button class="chip" type="button">gotowe / sklepowe</button>
+          <button class="chip" type="button">bez zadruku</button>
+          <button class="chip" type="button">nadruk staly</button>
+          <button class="chip" type="button">nadruk personalizowany</button>
+        </div>
+      </section>
+
+      <section class="products-base">
+        <div class="section-head">
+          <h2>Baza produktow</h2>
+        </div>
+
+        <div class="scope-shell">
+          <div class="scope-tabs" role="tablist" aria-label="Typ oferty">
+            <button
+              class="scope-tab is-active"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              data-scope="custom"
+            >
+              <span class="scope-tab-kicker">Glowny scope</span>
+              <strong>Druk na zamowienie</strong>
+              <small>Produkty konfigurowane przez szablon lub projekt wlasny.</small>
+            </button>
+
+            <button class="scope-tab" type="button" role="tab" aria-selected="false" data-scope="ready">
+              <span class="scope-tab-kicker">Sklepowe / gotowe</span>
+              <strong>Gotowe produkty</strong>
+              <small>Produkty kupowane od razu, bez projektowania lub z minimalna personalizacja.</small>
+            </button>
+          </div>
+
+          <div class="context-sections" data-scope-panel="custom">
+          <article class="context-section">
+            <h4>Etykiety na rolce</h4>
+            <div class="product-cards">
+              <a class="product-card" href="#">Etykiety na butelki<span>Zobacz dalej</span></a>
+              <a class="product-card" href="#">Etykiety na artykuly spozywcze<span>Zobacz dalej</span></a>
+              <a class="product-card" href="#">Etykiety na kosmetyki<span>Zobacz dalej</span></a>
+              <a class="product-card" href="#">Etykiety na artykuly chemiczne<span>Zobacz dalej</span></a>
+              <a class="product-card" href="#">Etykiety na artykuly papiernicze<span>Zobacz dalej</span></a>
+              <a class="product-card" href="#">Etykiety na papierze Kraft<span>Zobacz dalej</span></a>
+              <a class="product-card" href="#">Etykiety peel-off<span>Zobacz dalej</span></a>
+              <a class="product-card" href="#">Etykiety z papieru z recyklingu<span>Zobacz dalej</span></a>
+            </div>
+          </article>
+
+          <article class="context-section">
+            <h4>Opcje eko</h4>
+            <div class="product-cards">
+              <a class="product-card" href="#">Folie z recyklingu (rPET)<span>Zobacz dalej</span></a>
+              <a class="product-card" href="#">Folie kompostowalne<span>Zobacz dalej</span></a>
+              <a class="product-card" href="#">Folie bez PVC (PE/PP)<span>Zobacz dalej</span></a>
+              <a class="product-card" href="#">Bez PVC i bez laminowania<span>Zobacz dalej</span></a>
+              <a class="product-card" href="#">Etykiety monomaterialowe<span>Zobacz dalej</span></a>
+              <a class="product-card" href="#">Papier z recyklingu<span>Zobacz dalej</span></a>
+            </div>
+          </article>
+
+          <article class="context-section">
+            <h4>Plastikowe opakowania</h4>
+            <div class="product-cards">
+              <a class="product-card" href="#">Doypacki<span>Zobacz dalej</span></a>
+              <a class="product-card" href="#">Saszetki<span>Zobacz dalej</span></a>
+            </div>
+          </article>
+
+          <article class="context-section">
+            <h4>Pudelka z nadrukiem</h4>
+            <div class="product-cards">
+              <a class="product-card" href="#">Pudelka produktowe<span>Zobacz dalej</span></a>
+              <a class="product-card" href="#">Pudelka z zawieszka<span>Zobacz dalej</span></a>
+              <a class="product-card" href="#">Pudelka na wino<span>Zobacz dalej</span></a>
+              <a class="product-card" href="#">Pudelka dno-wieczko<span>Zobacz dalej</span></a>
+              <a class="product-card" href="#">Pudelka fasonowe<span>Zobacz dalej</span></a>
+              <a class="product-card" href="#">Pudelko kieszonka<span>Zobacz dalej</span></a>
+              <a class="product-card" href="#">Pudelka prezentowe<span>Zobacz dalej</span></a>
+              <a class="product-card" href="#">Pudelka sleeve / Gift Box<span>Zobacz dalej</span></a>
+              <a class="product-card" href="#">Pudelka wysylkowe<span>Zobacz dalej</span></a>
+            </div>
+          </article>
+
+          <article class="context-section context-section--mixed">
+            <h4>Sciezki mieszane</h4>
+            <div class="product-cards">
+              <a class="product-card" href="#">Male serie na probe (arkusze)<span>Zobacz dalej</span></a>
+              <a class="product-card" href="#">Etykiety polgotowe<span>Zobacz dalej</span></a>
+            </div>
+          </article>
+          </div>
+
+          <div class="context-sections is-hidden" data-scope-panel="ready">
+            <article class="context-section context-section--ready">
+              <h4>Gotowe etykiety informacyjne (sklep)</h4>
+              <div class="product-cards">
+                <a class="product-card" href="#">Etykiety logistyczne i kurierskie<span>Zobacz dalej</span></a>
+                <a class="product-card" href="#">Etykiety magazynowe<span>Zobacz dalej</span></a>
+                <a class="product-card" href="#">Etykiety ostrzegawcze i BHP<span>Zobacz dalej</span></a>
+                <a class="product-card" href="#">Etykiety spozywcze i rekodzielnicze<span>Zobacz dalej</span></a>
+              </div>
+            </article>
+
+            <article class="context-section context-section--ready">
+              <h4>Produkty bez zadruku (sklep)</h4>
+              <div class="product-cards">
+                <a class="product-card" href="#">Etykiety do drukarek Zebra<span>Zobacz dalej</span></a>
+                <a class="product-card" href="#">Pudelka wysylkowe bez nadruku<span>Zobacz dalej</span></a>
+                <a class="product-card" href="#">Koperty eko bez nadruku<span>Zobacz dalej</span></a>
+                <a class="product-card" href="#">Papier pakowy (recykling / Kraft)<span>Zobacz dalej</span></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="split-2" id="wizard">
+        <article class="panel">
+          <p class="eyebrow">Szkic: Skonfiguruj produkt</p>
+          <h2>Mini wizard / ankieta</h2>
+          <ol class="step-list">
+            <li>Jaki produkt chcesz przygotowac?</li>
+            <li>Co juz masz: tresci, plik, tylko pomysl?</li>
+            <li>Ile zmiennych przewidujesz?</li>
+            <li>Kto projektuje: Ty, agencja, czy nasz szablon?</li>
+            <li>Jaki naklad i termin?</li>
+          </ol>
+          <a class="btn btn-primary" href="#">Start ankiety (draft)</a>
+        </article>
+
+        <article class="panel">
+          <p class="eyebrow">Dla agencji</p>
+          <h2>Mam juz wlasny projekt</h2>
+          <p>
+            Dodaj plik, ustaw produkcje i przejdz przez kontrole przed drukiem. Potem zarzadzaj wariantami i
+            ponowieniami.
+          </p>
+          <a class="btn btn-ghost" href="#">Dodaj projekt (draft)</a>
+        </article>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
