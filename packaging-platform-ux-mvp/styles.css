@@ -372,7 +372,14 @@ body {
   margin: 0;
   border: 1px solid #9ba4af;
   border-radius: 0;
-  background: linear-gradient(180deg, #f2f4f7 0%, #e8edf3 100%);
+  background-color: #dcdcdc;
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.45) 0,
+    rgba(255, 255, 255, 0.45) 1px,
+    transparent 1px,
+    transparent 8px
+  );
   box-shadow: none;
   padding: 14px 12px 12px;
   display: grid;
@@ -383,13 +390,17 @@ body {
 }
 
 .wizard-preview::before {
-  content: "";
+  content: none;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 18px;
   background: linear-gradient(180deg, #d5dce5 0%, #ccd4de 100%);
+}
+
+.wizard-preview > * {
+  display: none !important;
 }
 
 .wizard-preview__top {
